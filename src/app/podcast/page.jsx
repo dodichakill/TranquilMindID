@@ -1,8 +1,12 @@
+import NavigationBar from '@components/NavigationBar'
 import React from 'react'
 
 const Podcast = () => {
   return (
-    <div>Podcast</div>
+    <>
+      <NavigationBar />
+      <div className='my-20'>Podcast</div>
+    </>
   )
 }
 

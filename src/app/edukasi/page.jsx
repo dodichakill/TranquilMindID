@@ -1,8 +1,12 @@
+import NavigationBar from '@components/NavigationBar'
 import React from 'react'
 
 const Edukasi = () => {
   return (
-    <div>Edukasi</div>
+    <>
+      <NavigationBar />
+      <div className='my-20'>Edukasi</div>
+    </>
   )
 }
 
