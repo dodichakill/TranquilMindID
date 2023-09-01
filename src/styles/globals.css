@@ -5,7 +5,8 @@
 @tailwind utilities;
 
 body {
-   @apply overflow-x-hidden overflow-y-hidden;
+   overflow-x: hidden !important;
+   overflow-y: hidden !important;
 }
 
 /* Spinner Loading */

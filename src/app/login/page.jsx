@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
@@ -35,15 +35,10 @@ const Login = () => {
           action='#'
           className='flex flex-col justify-center items-center gap-4'
         >
-          <a
-            href='#'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='flex justify-center items-center gap-3 bg-white border relative border-slate-300 rounded-2xl px-[4.5rem] py-2 lg:text-base text-[0.9rem]'
-          >
+          <button className='flex justify-center items-center gap-3 bg-white border relative border-slate-300 rounded-2xl px-[4.5rem] py-2 lg:text-base text-[0.9rem]'>
             <FcGoogle className='absolute left-2 text-3xl' />
             Login dengan Google
-          </a>
+          </button>
           <div className='or-line relative w-full'>
             <div className='bg-white px-3 absolute right-[50%] top-[50%] translate-x-[50%] -translate-y-[50%] text-sm'>
               Atau
@@ -107,8 +102,9 @@ const Login = () => {
           </h3>
         </form>
       </div>
-      <div className="bubbles absolute -right-10 -top-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full"></div>
-      <div className="bubbles absolute -left-10 lg:-right-10 -bottom-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full"></div>
+      <div className='bubbles absolute -right-10 -top-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full'></div>
+      <div className='bubbles lg:visible invisible absolute -right-10 -bottom-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full'></div>
+      <div className='bubbles lg:invisible visible absolute -left-10 -bottom-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full'></div>
     </div>
   );
 };
