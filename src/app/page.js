@@ -1,5 +1,6 @@
 "use client";
 
+import FooterSection from "@components/FooterSection";
 import NavigationBar from "@components/NavigationBar";
 import { Button } from "flowbite-react";
 import Image from "next/image";
@@ -19,6 +20,7 @@ export default function Home() {
         <p className='text-xl'>Let's we build this web...</p>
         <Button>Get Started</Button>
       </main>
+      <FooterSection />
     </>
   );
 }
