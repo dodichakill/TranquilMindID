@@ -9,6 +9,12 @@ import { FaEye } from "react-icons/fa";
 
 const Login = () => {
   const [eyeClose, setEyeClose] = React.useState(true);
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+  }
 
   return (
     <div className='flex justify-between items-center px-8 min-h-screen relative'>
@@ -32,10 +38,11 @@ const Login = () => {
           <h1 className='text-lg font-medium'>Sembuh Bersama TranquilMind</h1>
         </div>
         <form
+          onSubmit={(e) => handleSubmitForm(e)}
           action='#'
           className='flex flex-col justify-center items-center gap-4'
         >
-          <button className='flex justify-center items-center gap-3 bg-white border relative border-slate-300 rounded-2xl px-[4.5rem] py-2 lg:text-base text-[0.9rem]'>
+          <button className='flex justify-center items-center gap-3 bg-white border relative border-slate-300 rounded-2xl px-[4.5rem] py-[0.6rem] lg:py-2 lg:text-base text-[0.9rem]'>
             <FcGoogle className='absolute left-2 text-3xl' />
             Login dengan Google
           </button>
@@ -53,6 +60,8 @@ const Login = () => {
               placeholder='Username'
               className='bg-white border relative border-slate-300 rounded-2xl px-10 py-2 text-center'
               required
+              onChange={({ target }) => setUsername(target.value)}
+              value={username}
             />
           </div>
           <div className='password-field w-fit relative'>
@@ -65,6 +74,8 @@ const Login = () => {
                   placeholder='Password'
                   className='bg-white border relative border-slate-300 rounded-2xl px-10 py-2 text-center'
                   required
+                  onChange={({ target }) => setPassword(target.value)}
+                  value={password}
                 />
                 <FaEye
                   onClick={() => setEyeClose((prev) => !prev)}
@@ -80,6 +91,8 @@ const Login = () => {
                   placeholder='Password'
                   className='bg-white border relative border-slate-300 rounded-2xl px-10 py-2 text-center'
                   required
+                  onChange={({ target }) => setPassword(target.value)}
+                  value={password}
                 />
                 <FaEyeSlash
                   onClick={() => setEyeClose((prev) => !prev)}
@@ -94,7 +107,7 @@ const Login = () => {
           >
             Masuk
           </button>
-          <h3 className='self-start sm:text-base text-sm'>
+          <h3 className='self-start lg:text-base text-sm'>
             Belum punya akun?{" "}
             <Link href='/register' className='text-primary'>
               Buat akun
