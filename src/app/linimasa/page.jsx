@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Linimasa = () => {
-  return (
-    <div>Linimasa</div>
-  )
-}
+  return <div>Linimasa</div>;
+};
 
-export default Linimasa
+export default Linimasa;
