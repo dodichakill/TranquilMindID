@@ -1,13 +1,12 @@
 "use client";
 
 import CarouselBanner from "@components/CarouselBanner";
-import { Button } from "flowbite-react";
-import Image from "next/image";
 import Headline from "./Headline";
 import Features from "./Features";
 import Podcasts from "./Podcasts";
 import Recommendation from "./Recommendation";
 import Reviews from "./Reviews";
+import NavigationBar from "@components/NavigationBar";
 
 export default function Home() {
   const dataBannerCarousel = [
@@ -36,6 +35,8 @@ export default function Home() {
 
   return (
     <>
+      <NavigationBar active="beranda" />
+
       <Headline />
 
       <Features />

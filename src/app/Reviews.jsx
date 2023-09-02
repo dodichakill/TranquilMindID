@@ -10,7 +10,7 @@ export default function Reviews() {
   return (
     <>
       <div className="flex h-[40rem]">
-        <div className="flex-1 flex items-center justify-center rounded-b-xl bg-primary py-20">
+        <div className="flex-1 flex items-center justify-center rounded-br-xl bg-primary py-20">
           <div className="flex w-full flex-col gap-5">
             <CarouselReviews />
           </div>

@@ -23,7 +23,7 @@ export default function Recommendation() {
             </Button>
           </div>
         </div>
-        <div className="flex-1 flex items-center justify-center rounded-t-xl bg-primary py-20">
+        <div className="flex-1 flex items-center justify-center rounded-tl-xl bg-primary py-20">
           <div className="flex flex-col gap-5">
             <CardPsikolog
               name="Novi Maulidita, M.PSI"
