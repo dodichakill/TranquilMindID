@@ -1,7 +1,13 @@
-import React from "react";
+import NavigationBar from '@components/NavigationBar'
+import React from 'react'
 
 const Linimasa = () => {
-  return <div>Linimasa</div>;
-};
+  return (
+    <>
+      <NavigationBar />
+      <div className='my-20'>Linimasa</div>
+    </>
+  )
+}
 
-export default Linimasa;
+export default Linimasa

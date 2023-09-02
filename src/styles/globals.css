@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden !important;
+}
+
 /* Spinner Loading */
 .spinner {
   position: relative;
@@ -73,4 +77,10 @@
 
 .container_2 {
   @apply w-full max-w-[42rem] m-auto p-5 box-border;
+}
+
+/* input field */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
 }

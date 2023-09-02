@@ -25,45 +25,45 @@ const NavigationBar = () => {
         <div className="navbar-link hidden lg:flex justify-center items-center gap-4 text-primary">
           <Link
             href="/"
-            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary rounded-full p-3 outline-none"
+            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none"
           >
-            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white">
+            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white group-active:border-white">
               <AiOutlineHome className="text-xl" />
             </div>
             Beranda
           </Link>
           <Link
             href="/linimasa"
-            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary rounded-full p-3 outline-none"
+            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none"
           >
-            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white">
+            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white group-active:border-white">
               <MdTimeline className="text-xl" />
             </div>
             Linimasa
           </Link>
           <Link
             href="/rekomendasi"
-            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary rounded-full p-3 outline-none"
+            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none"
           >
-            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white">
+            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white group-active:border-white">
               <GoGitBranch className="text-xl" />
             </div>
             Rekomendasi
           </Link>
           <Link
             href="/edukasi"
-            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary rounded-full p-3 outline-none"
+            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none"
           >
-            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white">
+            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white group-active:border-white">
               <VscBook className="text-xl" />
             </div>
             Edukasi
           </Link>
           <Link
             href="/podcast"
-            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary rounded-full p-3 outline-none"
+            className="flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none"
           >
-            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white">
+            <div className="border-[3px] transition duration-100 ease-in-out border-primary rounded-full p-1 group-hover:border-white group-focus:border-white group-active:border-white">
               <BiPodcast className="text-xl" />
             </div>
             Podcast
