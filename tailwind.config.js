@@ -8,8 +8,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'inter': ['Inter', 'sans-serif'],
-      'roboto': ['Inter', 'sans-serif'],
+      inter: ["Inter", "sans-serif"],
+      roboto: ["Roboto", "sans-serif"],
     },
     extend: {
       backgroundImage: {
@@ -18,14 +18,17 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       textColor: {
-        "primary": "#128EF0",
-      },
-      borderColor: {
-        "primary": "#128EF0",
+        primary: "#128EF0",
       },
       backgroundColor: {
-        "primary": "#128EF0",
-      }
+        primary: "#128EF0",
+      },
+      borderColor: {
+        primary: "#128EF0",
+      },
+      backgroundColor: {
+        primary: "#128EF0",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
