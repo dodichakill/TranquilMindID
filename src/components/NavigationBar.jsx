@@ -14,7 +14,6 @@ import {
   BsFillInfoCircleFill,
 } from "react-icons/bs";
 import { Dropdown } from "flowbite-react";
-import { DropdownItem } from "flowbite-react/lib/esm/components/Dropdown/DropdownItem";
 
 const NavigationBar = ({ active, user }) => {
   const [userAuth, setUserAuth] = React.useState(null);
@@ -167,23 +166,23 @@ const NavigationBar = ({ active, user }) => {
                         </div>
                       </div>
                       <Dropdown label="Pilih Latar Musik">
-                        <DropdownItem
+                        <Dropdown.Item
                           onClick={() => setMusic({ name: "Hutan", audio: "" })}
                         >
                           Hutan
-                        </DropdownItem>
-                        <DropdownItem
+                        </Dropdown.Item>
+                        <Dropdown.Item
                           onClick={() =>
                             setMusic({ name: "Air Terjun", audio: "" })
                           }
                         >
                           Air Terjun
-                        </DropdownItem>
-                        <DropdownItem
+                        </Dropdown.Item>
+                        <Dropdown.Item
                           onClick={() => setMusic({ name: "Hujan", audio: "" })}
                         >
                           Hujan
-                        </DropdownItem>
+                        </Dropdown.Item>
                       </Dropdown>
                     </div>
 
@@ -194,9 +193,15 @@ const NavigationBar = ({ active, user }) => {
                       <BsFillInfoCircleFill className="h-5 inline w-5 mr-2" />{" "}
                       Tentang Kami
                     </Link>
-                    <Link href="/sign-out">
-                      <BiExit className="h-5 inline w-5 mr-2" /> Keluar Akun
-                    </Link>
+                    <form
+                      action="/auth/sign-out"
+                      method="post"
+                      className="cursor-pointer"
+                    >
+                      <button type="submit">
+                        <BiExit className="h-5 inline w-5 mr-2" /> Keluar Akun
+                      </button>
+                    </form>
                   </div>
                 </div>
                 <BiUserCircle
