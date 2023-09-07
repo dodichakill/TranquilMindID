@@ -29,6 +29,9 @@ module.exports = {
       backgroundColor: {
         primary: "#128EF0",
       },
+      ringColor: {
+        primary: "#128EF0",
+      }
     },
   },
   plugins: [require("flowbite/plugin")],
