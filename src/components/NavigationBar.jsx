@@ -16,21 +16,19 @@ import {
 import { Dropdown } from "flowbite-react";
 
 const NavigationBar = ({ active, user }) => {
-  const [userAuth, setUserAuth] = React.useState(null);
   const [pathname, setPathname] = React.useState("");
   const [music, setMusic] = React.useState({ name: "Hutan", audio: "" });
   const [isMusicPlay, setIsMusicPlay] = React.useState(false);
   const [isProfileClick, setIsProfileClick] = React.useState(false);
 
   useEffect(() => {
-    if (user) {
-      setUserAuth(user);
-    }
     const nowPathname = window.location.pathname;
     if (nowPathname === "/login" || nowPathname === "/register") {
       setPathname(nowPathname);
     }
   }, []);
+
+  const userAuth = user || null;
 
   return (
     <React.Fragment>
@@ -130,7 +128,6 @@ const NavigationBar = ({ active, user }) => {
                 >
                   <div className="p-5 flex items-center gap-2">
                     <div className="flex-1">
-                      <p>nama user</p>
                       <p>{userAuth.email}</p>
                     </div>
                     <div className="flex-1">

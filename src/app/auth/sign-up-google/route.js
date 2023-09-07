@@ -6,16 +6,18 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request) {
   const requestUrl = new URL(request.url);
-  const formData = await request.formData();
-  const email = String(formData.get("email"));
-  const password = String(formData.get("password"));
+  //   const formData = await request.formData();
+  //   const email = String(formData.get("email"));
+  //   const password = String(formData.get("password"));
   const supabase = createRouteHandlerClient({ cookies });
 
-  const { error } = await supabase.auth.signUp({
-    email,
-    password,
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
     options: {
-      emailRedirectTo: `${requestUrl.origin}/auth/callback`,
+      queryParams: {
+        access_type: "offline",
+        prompt: "consent",
+      },
     },
   });
 
@@ -29,11 +31,10 @@ export async function POST(request) {
     );
   }
 
-  return NextResponse.redirect(
-    `${requestUrl.origin}/register?message=Periksa email untuk melanjutkan proses masuk`,
-    {
-      // a 301 status is required to redirect from a POST to a GET route
-      status: 301,
-    }
-  );
+  console.log(data);
+
+  return NextResponse.redirect(data.url, {
+    // a 301 status is required to redirect from a POST to a GET route
+    status: 301,
+  });
 }
