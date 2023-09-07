@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import CarouselBanner from "@components/CarouselBanner";
 import Headline from "./Headline";
@@ -7,8 +7,12 @@ import Podcasts from "./Podcasts";
 import Recommendation from "./Recommendation";
 import Reviews from "./Reviews";
 import NavigationBar from "@components/NavigationBar";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
   const dataBannerCarousel = [
     {
       id: 1,
@@ -33,12 +37,16 @@ export default function Home() {
     },
   ];
 
+  const supabase = createServerComponentClient({ cookies });
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <>
-      <NavigationBar active="beranda" />
+      <NavigationBar active="beranda" user={user} />
 
       <Headline />
-
       <Features />
 
       <Podcasts />

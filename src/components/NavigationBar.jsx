@@ -1,15 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineHome } from "react-icons/ai";
 import { MdTimeline } from "react-icons/md";
 import { VscBook } from "react-icons/vsc";
-import { BiPodcast } from "react-icons/bi";
+import { BiPodcast, BiUserCircle, BiExit } from "react-icons/bi";
 import { GoGitBranch } from "react-icons/go";
+import {
+  BsFillPlayCircleFill,
+  BsFillPauseCircleFill,
+  BsFillInfoCircleFill,
+} from "react-icons/bs";
+import { Dropdown } from "flowbite-react";
 
-const NavigationBar = ({ active }) => {
+const NavigationBar = ({ active, user }) => {
+  const [pathname, setPathname] = React.useState("");
+  const [music, setMusic] = React.useState({ name: "Hutan", audio: "" });
+  const [isMusicPlay, setIsMusicPlay] = React.useState(false);
+  const [isProfileClick, setIsProfileClick] = React.useState(false);
+
+  useEffect(() => {
+    const nowPathname = window.location.pathname;
+    if (nowPathname === "/login" || nowPathname === "/register") {
+      setPathname(nowPathname);
+    }
+  }, []);
+
+  const userAuth = user || null;
+
   return (
     <React.Fragment>
       {/* Desktop and Tablet Version */}
@@ -99,15 +119,109 @@ const NavigationBar = ({ active }) => {
             Podcast
           </Link>
         </div>
-        <div className="profile cursor-pointer">
-          <Image
-            className="rounded-full p-[0.2rem] ring-2 ring-gray-300"
-            src="https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=600"
-            width={40}
-            height={40}
-            alt="user-avatar"
-          />
-        </div>
+        {userAuth ? (
+          <div className={`profile  ${isProfileClick ? "relative" : ""}`}>
+            {isProfileClick ? (
+              <>
+                <div
+                  className={`card rounded-xl shadow-lg  bg-primary text-white absolute -right-5 -top-5`}
+                >
+                  <div className="p-5 flex items-center gap-2">
+                    <div className="flex-1">
+                      <p>{userAuth.email}</p>
+                    </div>
+                    <div className="flex-1">
+                      <BiUserCircle
+                        className="text-xl h-10 w-10 cursor-pointer"
+                        onClick={() => setIsProfileClick(!isProfileClick)}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full">
+                    <hr />
+                    <div className="p-5 gap-2 flex flex-col overflow-auto w-full">
+                      <div className="w-full h-20 relative rounded-xl  p-2">
+                        <Image
+                          src="https://images.pexels.com/photos/2085998/pexels-photo-2085998.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                          width={80}
+                          height={160}
+                          className="w-full h-full object-cover rounded-xl flex-1 shrink-0"
+                        />
+                        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-b h-full rounded-xl from-[#01086654] to-[#01010e54] p-5 flex items-center justify-between">
+                          <p className="text-xl">{music.name}</p>
+                          {isMusicPlay ? (
+                            <BsFillPauseCircleFill
+                              className="h-10 w-10 cursor-pointer"
+                              onClick={() => setIsMusicPlay(!isMusicPlay)}
+                            />
+                          ) : (
+                            <BsFillPlayCircleFill
+                              className="h-10 w-10 cursor-pointer"
+                              onClick={() => setIsMusicPlay(!isMusicPlay)}
+                            />
+                          )}
+                        </div>
+                      </div>
+                      <Dropdown label="Pilih Latar Musik">
+                        <Dropdown.Item
+                          onClick={() => setMusic({ name: "Hutan", audio: "" })}
+                        >
+                          Hutan
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                          onClick={() =>
+                            setMusic({ name: "Air Terjun", audio: "" })
+                          }
+                        >
+                          Air Terjun
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                          onClick={() => setMusic({ name: "Hujan", audio: "" })}
+                        >
+                          Hujan
+                        </Dropdown.Item>
+                      </Dropdown>
+                    </div>
+
+                    <hr />
+                  </div>
+                  <div className="p-5 flex flex-col gap-4">
+                    <Link href="/tentangkami">
+                      <BsFillInfoCircleFill className="h-5 inline w-5 mr-2" />{" "}
+                      Tentang Kami
+                    </Link>
+                    <form
+                      action="/auth/sign-out"
+                      method="post"
+                      className="cursor-pointer"
+                    >
+                      <button type="submit">
+                        <BiExit className="h-5 inline w-5 mr-2" /> Keluar Akun
+                      </button>
+                    </form>
+                  </div>
+                </div>
+                <BiUserCircle
+                  className="rounded-full p-[0.2rem] ring-2 ring-gray-300 h-10 w-10"
+                  onClick={() => setIsProfileClick(!isProfileClick)}
+                />
+              </>
+            ) : (
+              <BiUserCircle
+                className="rounded-full p-[0.2rem] cursor-pointer ring-2 ring-gray-300 h-10 w-10"
+                width={40}
+                height={40}
+                onClick={() => setIsProfileClick(!isProfileClick)}
+              />
+            )}
+          </div>
+        ) : pathname === "/login" || pathname === "/register" ? (
+          <p style={{ visibility: "hidden" }}>oke</p>
+        ) : (
+          <Link href="/login" className="btn bg-black text-white">
+            Masuk / Daftar
+          </Link>
+        )}
       </div>
 
       {/* Mobile Version */}
