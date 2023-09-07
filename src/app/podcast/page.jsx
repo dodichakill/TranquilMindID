@@ -1,3 +1,5 @@
+import ChannelPodcast from "@components/ChannelPodcast";
+import ItemPodcast from "@components/ItemPodcast";
 import NavigationBar from "@components/NavigationBar";
 import Image from "next/image";
 import Link from "next/link";
@@ -137,22 +139,7 @@ const Podcast = () => {
             <div className='wrapper-card-podcast grid grid-cols-1 sm:grid-cols-2 place-items-center gap-3'>
               {dataPodcast.map((pod) => (
                 <>
-                  <div
-                    className='card-podcast flex justify-center items-center gap-3 p-2 rounded-3xl text-white bg-primary hover:-translate-y-1 transition cursor-pointer'
-                    key={pod.id}
-                  >
-                    <Image
-                      src={pod.img}
-                      width={150}
-                      height={150}
-                      alt='image-podcast'
-                    />
-                    <div className='desc'>
-                      <h2 className="font-semibold text-base sm:text-xl">{pod.title}</h2>
-                      <p className="text-[0.85rem] sm:text-base">{pod.channel}</p>
-                      <p className="text-[0.6rem] sm:text-xs mt-1 sm:mt-2">Tekan untuk dengarkan {"->"}</p>
-                    </div>
-                  </div>
+                  <ItemPodcast podcast={pod} key={pod.id} />
                 </>
               ))}
             </div>
@@ -167,10 +154,7 @@ const Podcast = () => {
           <div className="channel-podcast-list grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-6 place-items-center">
             {dataChannelPodcast.map((channel) => (
               <>
-                <div className="card-channel-podcast flex flex-col justify-start items-center text-white bg-primary rounded-2xl w-fit h-[19rem] p-2 text-center hover:scale-[1.02] transition cursor-pointer overflow-hidden">
-                  <Image src={channel.img} width={200} height={200} alt="card-channel-img" className="rounded-xl" />
-                  <h1 className="font-semibold text-2xl w-[200px] mt-2">{channel.title}</h1>
-                </div>
+                <ChannelPodcast channel={channel} />
               </>
             ))}
           </div>
