@@ -50,9 +50,9 @@ export default function ListProfesional() {
   ];
   return (
     <>
-      <div className="w-full bg-primary rounded-t-[5rem] mt-24">
+      <div className="w-full bg-primary rounded-t-2xl md:rounded-t-[5rem] mt-12 md:mt-24">
         <div className="container">
-          <h1 className="heading text-center text-white mt-20">
+          <h1 className="heading text-center text-white mt-10 md:mt-20">
             Psikolog dan Psikiater
           </h1>
           <div className="w-full flex flex-wrap gap-5 items-center justify-center mt-10">

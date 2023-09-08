@@ -48,12 +48,6 @@ export default function LoginComponent() {
             method="post"
             className="flex flex-col justify-center items-center gap-4 w-[19.5rem]"
           >
-            <div className="or-line relative w-full">
-              <div className="bg-white px-3 absolute right-[50%] top-[50%] translate-x-[50%] -translate-y-[50%] text-sm">
-                Atau
-              </div>
-              <hr className="border border-slate-200 my-2" />
-            </div>
             <div className="email-field">
               <input
                 type="text"

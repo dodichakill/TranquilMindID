@@ -6,7 +6,7 @@ import { FaHospital, FaStethoscope } from "react-icons/fa6";
 export default function CardPsikolog({ name, type, image, place }) {
   return (
     <div className="flex justify-center">
-      <div className="w-[30rem] p-6 hover:scale-110 transition-all bg-white rounded-xl">
+      <div className="w-56 md:w-[30rem] p-6 hover:scale-110 transition-all bg-white rounded-xl">
         <div className="flex gap-5">
           <Image src={image} width={100} height={100} alt="psikolog" />
           <div className="w-full">
