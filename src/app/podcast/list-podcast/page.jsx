@@ -102,8 +102,8 @@ export default function ListPodcast() {
   return (
     <>
       <NavigationBar active='podcast' />
-      <div className='my-20 mt-10 lg:mt-24 lg:mb-0 flex justify-between items-start gap-5 pr-6'>
-        <div className='sidebar-podcast flex flex-col justify-start items-center bg-primary h-[1000px] w-[22rem] text-white'>
+      <div className='my-20 mt-10 lg:mt-24 lg:mb-0 flex justify-between items-start lg:flex-row flex-col gap-5 lg:pr-6'>
+        <div className='sidebar-podcast flex flex-col justify-start items-start lg:items-center bg-primary h-fit w-full pb-4 lg:pb-0 lg:h-[1000px] lg:w-[22rem] text-white'>
           <Link
             href='/podcast'
             className='back-button flex justify-start w-full items-center gap-3 my-5 pl-4 font-semibold'
@@ -111,22 +111,27 @@ export default function ListPodcast() {
             <AiOutlineArrowLeft className='text-3xl' />
             <span className='text-xl'>Kembali</span>
           </Link>
-          <Image
-            src='/assets/Podcast/dummy-4.png'
-            width={250}
-            height={250}
-            alt='podcast-image'
-          />
-          <div className='px-12 my-3 title-podcast self-start'>
-            <h1 className='font-semibold text-xl'>Rintik Sedu Podcast</h1>
-            <p>18 Podcast</p>
-          </div>
-          <div className='px-12 my-3 about-podcast'>
-            <h1 className='font-semibold text-xl'>Tentang</h1>
-            <p>Karna ada banyak hal yang harus di gapapain {":)"}</p>
+          <div className='desc-pod lg:flex-col flex sm:flex-row flex-col'>
+            <Image
+              src='/assets/Podcast/dummy-4.png'
+              width={280}
+              height={280}
+              alt='podcast-image'
+              className='px-12'
+            />
+            <div className='desc-box flex flex-col justify-center items-center'>
+              <div className='px-12 sm:px-0 lg:px-12 my-3 title-podcast self-start'>
+                <h1 className='font-semibold text-xl'>Rintik Sedu Podcast</h1>
+                <p>18 Podcast</p>
+              </div>
+              <div className='px-12 sm:px-0 lg:px-12 my-3 about-podcast'>
+                <h1 className='font-semibold text-xl'>Tentang</h1>
+                <p>Karna ada banyak hal yang harus di gapapain {":)"}</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className='podcast-list grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 place-items-center mt-16'>
+        <div className='podcast-list grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 place-items-center lg:mt-16 mt-6 lg:translate-x-0 translate-x-6 sm:translate-x-[1.85rem]'>
           {dataPodcast.map((podcast) => (
             <>
               <ItemPodcast podcast={podcast} />
