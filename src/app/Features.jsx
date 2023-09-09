@@ -6,7 +6,7 @@ import React from "react";
 
 export default function Features() {
   return (
-    <div className="w-full box-border bg-primary pt-28 mb-40 flex flex-col justify-center">
+    <div className="w-full box-border bg-primary pt-16 md:pt-28 mb-20 md:mb-40 flex flex-col justify-center">
       <div className="w-full max-w-[45em] flex flex-col pb-48 m-auto justify-center">
         <h1 className="heading text-white text-center">
           Mulai tes yuk! Biar tau kamu terkena gangguan apa
@@ -17,8 +17,8 @@ export default function Features() {
       </div>
 
       {/* cards start */}
-      <div className="w-full m-auto flex justify-center items-center relative bg-white p-10 box-border rounded-t-full">
-        <div className="flex w-full box-border justify-evenly items-center absolute -top-32">
+      <div className="w-full m-auto flex justify-center items-center relative bg-white h-[50rem] md:h-auto p-10 box-border rounded-t-3xl md:rounded-t-full">
+        <div className="flex flex-col md:flex-row w-full box-border justify-evenly items-center absolute -top-32">
           <div className="text-center w-64">
             <Image
               src="/assets/Homepage/podcast.gif"

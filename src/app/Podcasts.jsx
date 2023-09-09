@@ -13,7 +13,7 @@ export default function Podcasts() {
       </Button>
 
       {/* cards start */}
-      <div className="flex m-auto justify-evenly mt-10 w-full">
+      <div className="flex flex-col md:flex-row m-auto justify-center items-center gap-3 md:gap-0 md:justify-evenly mt-10 w-full">
         <div className="w-64 p-2 bg-primary/75 rounded-lg shadow cursor-pointer hover:scale-105 transition-all">
           <Image
             src="/assets/Homepage/p-psikologid.webp"

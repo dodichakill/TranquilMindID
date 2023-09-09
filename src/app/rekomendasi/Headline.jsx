@@ -1,15 +1,15 @@
 "use client";
 
 import CardPsikolog from "@components/CardPsikolog";
-import { Button } from "flowbite-react";
-import Image from "next/image";
-import React from "react";
+import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
-export default function Recommendation() {
+export default function Headline() {
+  const [search, setSearch] = useState("");
   return (
     <>
-      <div className="flex md:h-[40rem] md:mt-32 mb-0">
-        <div className="flex-1 flex items-center py-20 rounded-xl bg-white">
+      <div className="flex flex-col md:flex-row h-[20rem] md:h-[35rem] mt-5 md:mt-32 mb-0">
+        <div className="flex-1 flex items-center py-10 md:py-20 rounded-xl bg-white">
           <div className="container_2">
             <h1 className="heading">
               Rekomendasi <br /> Psikolog & Psikiater
@@ -18,12 +18,19 @@ export default function Recommendation() {
               Dapatkan informasi tentang rekomendasi psikolog dan psikiater
               terbaik yang dapat membantu anda lebih lanjut
             </p>
-            <Button className="btn bg-primary text-white flex-1">
-              Selengkapnya
-            </Button>
+            <div className="w-full relative">
+              <input
+                type="text"
+                placeholder="Cari berdasarkan nama / jenis profesi"
+                className="bg-white text-left border w-full relative border-slate-300 rounded-full px-5 py-3"
+                onChange={({ target }) => setSearch(target.value)}
+                value={search}
+              />
+              <FaSearch className="cursor-pointer absolute right-5 text-xl top-[0.8rem] text-slate-500" />
+            </div>
           </div>
         </div>
-        <div className="flex-1 hidden md:flex items-center justify-center rounded-tl-xl bg-primary py-20">
+        <div className="flex-1 hidden md:flex items-center justify-center rounded-l-xl bg-primary py-10 md:py-20">
           <div className="flex flex-col gap-5">
             <CardPsikolog
               name="Novi Maulidita, M.PSI"
