@@ -14,7 +14,7 @@ const DetailRekomendasi = async () => {
   return (
     <>
       <NavigationBar active="rekomendasi" user={user} />
-      <div className="flex mt-24">
+      <div className="flex flex-col md:flex-row mt-5 md:mt-24">
         <div className="container_2">
           <Profile />
         </div>
