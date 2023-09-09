@@ -6,10 +6,10 @@ import React from "react";
 
 export default function CarouselReviews({ data }) {
   return (
-    <div className="container_2 px-5 ">
-      <div className="h-64 sm:h-[35rem]">
+    <div className="container_2 px-5">
+      <div className=" sm:h-[35rem]">
         <Carousel>
-          <div className="p-5 w-96 bg-white rounded-xl relative">
+          <div className="p-5 w-96 shadow bg-white rounded-xl relative">
             <div className="flex flex-col items-center justify-center textcenter">
               <Image
                 src="/assets/Homepage/user3.png"
@@ -31,7 +31,7 @@ export default function CarouselReviews({ data }) {
               </p>
             </div>
           </div>
-          <div className="p-5 w-96 bg-white rounded-xl relative">
+          <div className="p-5 w-96 shadow bg-white rounded-xl relative">
             <div className="flex flex-col items-center justify-center textcenter">
               <Image
                 src="/assets/Homepage/user2.png"
@@ -53,7 +53,7 @@ export default function CarouselReviews({ data }) {
               </p>
             </div>
           </div>
-          <div className="p-5 w-96 bg-white rounded-xl relative">
+          <div className="p-5 w-96 shadow bg-white rounded-xl relative">
             <div className="flex flex-col items-center justify-center textcenter">
               <Image
                 src="/assets/Homepage/user1.png"

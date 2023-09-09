@@ -8,7 +8,7 @@ import React from "react";
 export default function Recommendation() {
   return (
     <>
-      <div className="flex h-[40rem] mt-32 mb-0">
+      <div className="flex md:h-[40rem] md:mt-32 mb-0">
         <div className="flex-1 flex items-center py-20 rounded-xl bg-white">
           <div className="container_2">
             <h1 className="heading">
@@ -23,7 +23,7 @@ export default function Recommendation() {
             </Button>
           </div>
         </div>
-        <div className="flex-1 flex items-center justify-center rounded-tl-xl bg-primary py-20">
+        <div className="flex-1 hidden md:flex items-center justify-center rounded-tl-xl bg-primary py-20">
           <div className="flex flex-col gap-5">
             <CardPsikolog
               name="Novi Maulidita, M.PSI"

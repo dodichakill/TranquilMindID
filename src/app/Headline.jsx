@@ -8,7 +8,7 @@ export default function Headline() {
   return (
     <div className="container min-h-screen my-20 flex flex-col md:flex-row items-center m-auto gap-2">
       <div className="w-full max-w-2xl">
-        <h1 className="text-2xl md:text-5xl leading-tight mb-5 font-bold text-black">
+        <h1 className="text-2xl md:text-5xl leading-tight mt-12 md:mt-5 mb-5 font-bold text-black">
           Temukan Ketenangan Mental & Jiwamu Bersama TranquilMind.id
         </h1>
         <p className="desc">
