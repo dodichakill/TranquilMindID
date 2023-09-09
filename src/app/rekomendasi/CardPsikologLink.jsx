@@ -8,7 +8,7 @@ export default function CardPsikologLink({ id, name, type, image, place }) {
   return (
     <div className="flex justify-center">
       <Link
-        href={`/rekomendasi/:${id}`}
+        href={`/rekomendasi/${id}`}
         className="w-full md:w-[30rem] p-5 box-border md:p-6 hover:scale-110 transition-all bg-white rounded-xl shadow-lg"
       >
         <div className="flex gap-5">

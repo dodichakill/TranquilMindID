@@ -16,9 +16,15 @@ const Profile = async () => {
   };
   return (
     <>
-      <div className="w-[40rem] p-5 pb-4 bg-white rounded-t-xl border-2 border-slate-300">
+      <div className="w-full md:w-[40rem] p-5 pb-4 bg-white rounded-t-xl border-2 border-slate-300">
         <div className="flex gap-5">
-          <Image src={data.image} width={100} height={100} alt="psikolog" />
+          <Image
+            src={data.image}
+            width={100}
+            height={100}
+            alt="psikolog"
+            className="object-cover w-20 h-20 rounded-full"
+          />
           <div className="w-full">
             <p className="text-xl leading-tight font-semibold">{data.name}</p>
             <p className="font-roboto font-semibold text-gray-400 mb-2 flex items-center gap-2">
@@ -36,7 +42,7 @@ const Profile = async () => {
           dapat membantu layanan Konsultasi psikologi.
         </p>
       </div>
-      <div className="w-[40rem] p-5 flex items-center border-2 border-t-0 border-slate-300 gap-5">
+      <div className="w-full md:w-[40rem] p-5 flex items-center border-2 border-t-0 border-slate-300 gap-5">
         <MdSchool className="text-3xl box-content text-primary p-5 bg-slate-100 rounded-full" />
         <div className="">
           <h2 className="sub_heading">Riwayat Pendidikan</h2>
@@ -46,7 +52,7 @@ const Profile = async () => {
           </div>
         </div>
       </div>
-      <div className="w-[40rem] p-5 flex items-center border-2 border-t-0 border-slate-300 gap-5">
+      <div className="w-full md:w-[40rem] p-5 flex items-center border-2 border-t-0 border-slate-300 gap-5">
         <FaLocationDot className="text-3xl box-content text-primary p-5 bg-slate-100 rounded-full" />
         <div className="">
           <h2 className="sub_heading">Pengalaman Praktik</h2>
@@ -56,7 +62,7 @@ const Profile = async () => {
           </div>
         </div>
       </div>
-      <div className="w-[40rem] rounded-b-xl p-5 flex items-center border-2 border-t-0 border-slate-300 gap-5">
+      <div className="w-full md:w-[40rem] rounded-b-xl p-5 flex items-center border-2 border-t-0 border-slate-300 gap-5">
         <AiFillSafetyCertificate className="text-3xl box-content text-primary p-5 bg-slate-100 rounded-full" />
         <div className="">
           <h2 className="sub_heading">Nomor STR</h2>
