@@ -67,7 +67,7 @@ body {
 
 /* button */
 .btn {
-  @apply px-4 py-2 font-bold rounded-full text-lg shadow;
+  @apply px-3 py-2 sm:px-4 font-bold rounded-full text-sm sm:text-lg shadow;
 }
 
 .btn_secondary {
