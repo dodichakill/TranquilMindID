@@ -12,7 +12,7 @@ const Questions = ({ question, listChoice, handleChoice }) => {
           alt='hero-question'
           className='sm:translate-y-0 translate-y-8'
         />
-        <div className='content-question overflow-visible sm:w-[650px] lg:w-[700px]'>
+        <div className='content-question overflow-visible w-full sm:w-[650px] lg:w-[700px]'>
           <h1 className='text-2xl sm:text-5xl lg:text-[3.4rem] font-medium'>
             Pertanyaan Dari <span className='text-primary'>MindMin</span>
           </h1>

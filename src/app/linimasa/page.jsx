@@ -14,6 +14,7 @@ const Linimasa = () => {
   const [resultTest, setResultTest] = useState({});
   const [isStart, setIsStart] = useState(false);
   const [countQuestion, setCountQuestion] = useState(1);
+  const [isDone, setIsDone] = useState(false);
   const router = useRouter();
 
   const [questionList, setQuestionList] = useState([
@@ -131,17 +132,17 @@ const Linimasa = () => {
       } else if (totalScore >= 10 && totalScore <= 14) {
         setKlasifikasi("Depresi Sedang");
         setInterpretasi(
-          "Anda mengalami depresi sedang. Pertimbangkan konseling atau perawatan medis."
+          "Anda terindikasi mengalami depresi sedang. Pertimbangkan konseling atau perawatan medis."
         );
       } else if (totalScore >= 15 && totalScore <= 19) {
         setKlasifikasi("Depresi Berat");
         setInterpretasi(
-          "Anda mengalami depresi berat. Segera cari bantuan dari seorang profesional kesehatan."
+          "Anda terindikasi mengalami depresi berat. Segera cari bantuan dari seorang profesional kesehatan."
         );
       } else if (totalScore >= 20) {
         setKlasifikasi("Depresi Sangat Berat");
         setInterpretasi(
-          "Anda mengalami depresi sangat berat. Segera cari bantuan medis darurat."
+          "Anda terindikasi mengalami depresi sangat berat. Segera cari bantuan medis darurat."
         );
       }
     };
@@ -156,10 +157,11 @@ const Linimasa = () => {
 
   const handleChoice = (params, score) => {
     params && setCountQuestion((count) => (count += 1));
-    if (countQuestion >= 9) {
-      router.push("/linimasa/result-test");
-    }
     setTotalScore((scores) => (scores += score));
+    if (countQuestion >= 9) {
+      localStorage.setItem("resultTest", JSON.stringify(resultTest));
+      setIsDone(true);
+    }
   };
 
   return (
@@ -198,16 +200,46 @@ const Linimasa = () => {
               </div>
             </div>
           </>
+        ) : countQuestion <= 9 && isDone == false ? (
+          <>
+            <ProgressBarLinimasa question={countQuestion} />
+            <div className='wrapper mb-[3rem] sm:mb-[4.8rem] lg:mb-16'>
+              <Questions
+                key={questionList[countQuestion - 1].id}
+                question={questionList[countQuestion - 1].question}
+                listChoice={questionList[countQuestion - 1].listChoice}
+                handleChoice={handleChoice}
+              />
+            </div>
+          </>
         ) : (
-          countQuestion <= 9 && (
+          isDone && (
             <>
-              <ProgressBarLinimasa question={countQuestion} />
-              <div className='wrapper mb-[3rem] sm:mb-[4.8rem] lg:mb-16'>
-                <Questions
-                  key={questionList[countQuestion - 1].id}
-                  question={questionList[countQuestion - 1].question}
-                  listChoice={questionList[countQuestion - 1].listChoice}
-                  handleChoice={handleChoice}
+              <div className='container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen'>
+                <div className='content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0'>
+                  <h1 className="text-xl sm:text-3xl lg:text-5xl font-medium sm:w-[700px] tracking-wide text-slate-900">
+                    Dari hasil test yang kamu jalani, kamu terindikasi{" "}
+                    <span className='text-primary'>
+                      {resultTest.classification}
+                    </span>
+                  </h1>
+                  <p className="sm:text-base text-xs text-slate-600">
+                    Tetap tenang kamu tidak usah khawatir, yuk mulai
+                    menyembuhkan <br className="hidden sm:block" /> {resultTest.classification} kamu
+                  </p>
+                  <button
+                    onClick={() => router.push("/linimasa/result-test")}
+                    className='text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3'
+                  >
+                    Mulai
+                  </button>
+                </div>
+                <Image
+                  src='/assets/Linimasa/diagnosis.gif'
+                  width={500}
+                  height={500}
+                  alt='hero-diagnosys'
+                  className="w-full sm:w-[500px] lg:w-[1000px]"
                 />
               </div>
             </>
