@@ -6,9 +6,9 @@ const Login = async () => {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.auth.getSession();
 
-  if (data?.session) {
-    redirect("/");
-  }
+  // if (data?.session) {
+  //   redirect("/");
+  // }
   return <LoginComponent />;
 };
 

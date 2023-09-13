@@ -5,7 +5,7 @@ export default function Headline() {
     <div
       className="w-full h-96 md:h-screen flex justify-center items-center mb-10 md:mb-28"
       style={{
-        backgroundImage: "url('/assets/About/h_about.png')",
+        backgroundImage: "url('/assets/About/bg.jpg')",
         objectFit: "cover",
       }}
     >
