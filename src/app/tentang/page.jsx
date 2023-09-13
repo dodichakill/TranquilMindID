@@ -1,3 +1,5 @@
+"use client";
+
 import NavigationBar from "@components/NavigationBar";
 import Background from "./Background";
 import Features from "./Features";
