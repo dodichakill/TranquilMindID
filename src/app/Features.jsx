@@ -11,7 +11,10 @@ export default function Features() {
         <h1 className="heading text-white text-center">
           Mulai tes yuk! Biar tau kamu terkena gangguan apa
         </h1>
-        <Button className="btn_secondary text-black bg-white m-auto inline-flex w-auto">
+        <Button
+          className="btn_secondary text-black bg-white m-auto inline-flex w-auto"
+          id="tes"
+        >
           Mulai Tes
         </Button>
       </div>
