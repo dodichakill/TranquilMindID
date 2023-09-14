@@ -6,6 +6,7 @@ import Questions from "@components/Questions";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Linimasa = () => {
   const [totalScore, setTotalScore] = useState(0);
@@ -127,22 +128,22 @@ const Linimasa = () => {
       } else if (totalScore >= 5 && totalScore <= 9) {
         setKlasifikasi("Depresi Ringan");
         setInterpretasi(
-          "Anda mungkin mengalami depresi ringan. Pertimbangkan berbicara dengan seorang profesional kesehatan."
+          "Anda terindikasi mengalami depresi ringan. Pertimbangkan berbicara dengan seorang profesional kesehatan dan selalu jaga pola makan dan tidur Anda."
         );
       } else if (totalScore >= 10 && totalScore <= 14) {
         setKlasifikasi("Depresi Sedang");
         setInterpretasi(
-          "Anda terindikasi mengalami depresi sedang. Pertimbangkan konseling atau perawatan medis."
+          "Anda terindikasi mengalami depresi sedang. Level depresi anda diatas ringan, konsultasikan langsung dengan psikolog atau tenaga kesehatan profesional."
         );
       } else if (totalScore >= 15 && totalScore <= 19) {
         setKlasifikasi("Depresi Berat");
         setInterpretasi(
-          "Anda terindikasi mengalami depresi berat. Segera cari bantuan dari seorang profesional kesehatan."
+          "Anda terindikasi mengalami depresi berat. Level depresi anda diatas ringan, konsultasikan langsung dengan psikolog atau tenaga kesehatan profesional."
         );
       } else if (totalScore >= 20) {
         setKlasifikasi("Depresi Sangat Berat");
         setInterpretasi(
-          "Anda terindikasi mengalami depresi sangat berat. Segera cari bantuan medis darurat."
+          "Anda terindikasi mengalami depresi sangat berat. Segera cari bantuan medis darurat, Anda bisa mulai melakukan konsultasi dengan psikolog."
         );
       }
     };
@@ -215,33 +216,80 @@ const Linimasa = () => {
         ) : (
           isDone && (
             <>
-              <div className='container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen'>
-                <div className='content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0'>
-                  <h1 className="text-xl sm:text-3xl lg:text-5xl font-medium sm:w-[700px] tracking-wide text-slate-900">
-                    Dari hasil test yang kamu jalani, kamu terindikasi{" "}
-                    <span className='text-primary'>
-                      {resultTest.classification}
-                    </span>
-                  </h1>
-                  <p className="sm:text-base text-xs text-slate-600">
-                    Tetap tenang kamu tidak usah khawatir, yuk mulai
-                    menyembuhkan <br className="hidden sm:block" /> {resultTest.classification} kamu
-                  </p>
-                  <button
-                    onClick={() => router.push("/linimasa/result-test")}
-                    className='text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3'
-                  >
-                    Mulai
-                  </button>
-                </div>
-                <Image
-                  src='/assets/Linimasa/diagnosis.gif'
-                  width={500}
-                  height={500}
-                  alt='hero-diagnosys'
-                  className="w-full sm:w-[500px] lg:w-[1000px]"
-                />
-              </div>
+              {totalScore > 4 ? (
+                <>
+                  <div className='container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen'>
+                    <div className='content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0'>
+                      <h1 className='text-xl sm:text-3xl lg:text-5xl font-medium sm:w-[700px] tracking-wide text-slate-900'>
+                        Dari hasil test yang kamu jalani, kamu terindikasi{" "}
+                        <span className='text-primary'>
+                          {resultTest.classification}
+                        </span>
+                      </h1>
+                      <p className='sm:text-base text-xs text-slate-600'>
+                        Tetap tenang kamu tidak usah khawatir, yuk mulai
+                        menyembuhkan <br className='hidden sm:block' />{" "}
+                        {resultTest.classification} kamu
+                      </p>
+                      <button
+                        onClick={() => router.push("/linimasa/result-test")}
+                        className='text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3'
+                      >
+                        Mulai
+                      </button>
+                    </div>
+                    <Image
+                      src='/assets/Linimasa/diagnosis.gif'
+                      width={500}
+                      height={500}
+                      alt='hero-diagnosys'
+                      className='w-full sm:w-[500px] lg:w-[1000px]'
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className='container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen'>
+                    <div className='content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0'>
+                      <h1 className='text-xl sm:text-3xl lg:text-5xl font-medium sm:w-[700px] tracking-wide text-slate-900'>
+                        Dari hasil test yang kamu jalani, kamu tidak ada gejala
+                        depresi
+                      </h1>
+                      <p className='sm:text-base text-xs text-slate-600'>
+                        Kamu tidak memerlukan pengobatan khusus, namun dapat
+                        melakukan tindakan pencegahan seperti menjaga kesehatan
+                        fisik dan mental, seperti olahraga teratur, makan
+                        makanan sehat, dan mengelola stres dengan baik. Apakah
+                        kamu ingin menjalani test lagi ?
+                      </p>
+                      <div className='button-box flex justify-start items-center gap-2 sm:gap-4'>
+                        <button
+                          onClick={() => {
+                            setCountQuestion(1);
+                            setIsDone(false);
+                          }}
+                          className='text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3'
+                        >
+                          Iya
+                        </button>
+                        <Link
+                          href="/"
+                          className='text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3'
+                        >
+                          Tidak
+                        </Link>
+                      </div>
+                    </div>
+                    <Image
+                      src='/assets/Linimasa/diagnosis.gif'
+                      width={500}
+                      height={500}
+                      alt='hero-diagnosys'
+                      className='w-full sm:w-[500px] lg:w-[1000px]'
+                    />
+                  </div>
+                </>
+              )}
             </>
           )
         )}

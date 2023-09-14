@@ -4,7 +4,11 @@ import CardTimeline from "@components/CardTimeline";
 import NavigationBar from "@components/NavigationBar";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { AiOutlineArrowLeft, AiOutlineClose } from "react-icons/ai";
+import {
+  AiOutlineArrowLeft,
+  AiOutlineClose,
+  AiOutlineArrowRight,
+} from "react-icons/ai";
 
 const ResultTest = () => {
   const [dataResult, setDataResult] = useState(
@@ -22,16 +26,40 @@ const ResultTest = () => {
     <>
       <NavigationBar active='linimasa' />
       <div className='wrapper lg:mt-[5.25rem]'>
-        <div className="main-hero w-screen h-screen bg-[url('/assets/Linimasa/hero-result.jpeg')] bg-cover bg-no-repeat flex bg-fixed justify-center items-center text-center">
-          <div className='bg-white/50 backdrop-blur-md w-[300px] h-[200px] sm:w-[600px] lg:w-[700px] sm:h-[300px] flex justify-center items-center flex-col p-4 sm:px-10 gap-3 rounded-lg shadow'>
-            <h1 className='text-2xl sm:text-4xl lg:text-5xl font-semibold'>
-              {dataResult.classification}
-            </h1>
-            <p className='text-xs sm:text-base lg:text-lg font-medium'>
-              {dataResult.interpretation}
-            </p>
-          </div>
-        </div>
+        {dataResult.classification == "Depresi Sedang" || dataResult.classification == "Depresi Berat" || dataResult.classification == "Depresi Sangat Berat" ? (
+          <>
+            <div className="main-hero w-screen h-screen bg-[url('/assets/Linimasa/hero-result.jpeg')] bg-cover bg-no-repeat flex bg-fixed justify-center items-center text-center">
+              <div className='bg-white/50 backdrop-blur-md w-[300px] h-[200px] sm:w-[600px] lg:w-[700px] sm:h-[300px] flex justify-center items-center flex-col p-4 sm:px-10 gap-3 rounded-lg shadow'>
+                <h1 className='text-2xl sm:text-4xl lg:text-5xl font-semibold'>
+                  {dataResult.classification}
+                </h1>
+                <p className='text-xs sm:text-base lg:text-lg font-medium'>
+                  {dataResult.interpretation}
+                </p>
+                <Link
+                  href='/rekomendasi'
+                  className='text-[0.6rem] sm:text-sm flex justify-center items-center gap-2 font-medium'
+                >
+                  Beralih ke halaman Rekomendasi
+                  <AiOutlineArrowRight />
+                </Link>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="main-hero w-screen h-screen bg-[url('/assets/Linimasa/hero-result.jpeg')] bg-cover bg-no-repeat flex bg-fixed justify-center items-center text-center">
+              <div className='bg-white/50 backdrop-blur-md w-[300px] h-[200px] sm:w-[600px] lg:w-[700px] sm:h-[300px] flex justify-center items-center flex-col p-4 sm:px-10 gap-3 rounded-lg shadow'>
+                <h1 className='text-2xl sm:text-4xl lg:text-5xl font-semibold'>
+                  {dataResult.classification}
+                </h1>
+                <p className='text-xs sm:text-base lg:text-lg font-medium'>
+                  {dataResult.interpretation}
+                </p>
+              </div>
+            </div>
+          </>
+        )}
 
         <div className='timeline w-fit h-fit flex justify-center items-center flex-row lg:gap-20 lg:pl-10'>
           <ol className='relative hidden lg:block ml-8 h-[1500px]'>
@@ -63,30 +91,46 @@ const ResultTest = () => {
           </ol>
           <ol className='relative border-l-8 border-gray-600 ml-8 h-[1500px]'>
             <li className='mb-10 ml-4'>
-              <CardTimeline posTopOne='top-[3.5rem]' posTopTwo='top-[1.5rem]' />
+              <CardTimeline
+                posTopOne='top-[3.5rem]'
+                posTopTwo='top-[1.5rem]'
+                shortDesc='Melakukan Aktivitas'
+                longDesc='Lakukan aktivitas yang disukai, seperti menonton film atau mendengarkan musik. Berolahraga ringan, seperti berjalan-jalan atau yoga. Anda dianjurkan untuk mendengarkan musik musik jazz, pop, dan klasik.'
+              />
             </li>
             <li className='mb-10 ml-4'>
               <CardTimeline
                 posTopOne='top-[16.5rem]'
                 posTopTwo='top-[14.5rem]'
+                shortDesc='Tidur Yang Cukup'
+                longDesc='Tidur dan bangun pada jam yang sama setiap hari. Hindari konsumsi kafein dan alkohol. Anda dianjurkan untuk melakukan relaksasi sebelum tidur, seperti meditasi atau pernapasan dalam-dalam.'
               />
             </li>
             <li className='mb-10 ml-4'>
               <CardTimeline
                 posTopOne='top-[29.5rem]'
                 posTopTwo='top-[27.5rem]'
+                shortDesc='Makan Makanan Sehat'
+                longDesc='Anda dianjurkan untuk makan makanan yang sehat dan bergizi. Hindari makanan cepat saji dan makanan yang mengandung gula berlebih. Anda dianjurkan makan dalam porsi kecil tapi sering.
+                '
               />
             </li>
             <li className='mb-10 ml-4'>
               <CardTimeline
                 posTopOne='top-[42.5rem]'
                 posTopTwo='top-[40.5rem]'
+                shortDesc='Melakukan Interaksi Sosial'
+                longDesc='Anda dianjurkan untuk bertemu dengan teman atau keluarga. Anda bisa melakukan kegiatan sosial, seperti bergabung dengan klub atau organisasi.
+                '
               />
             </li>
             <li className='mb-10 ml-4'>
               <CardTimeline
                 posTopOne='top-[55.5rem]'
                 posTopTwo='top-[53.5rem]'
+                shortDesc='Berkegiatan Yang Disukai'
+                longDesc='Anda dianjurkan untuk melakukan kegiatan yang memberikan rasa senang seeprti hobi Anda. Anda bisa melakukan kegiatan yang memberikan rasa kepuasan, seperti berkebun atau memasak.
+               '
               />
             </li>
             <li className='mb-10 ml-4'>
@@ -168,7 +212,8 @@ const ResultTest = () => {
                               </button>
                               <p className='text-xs sm:text-sm lg:text-base'>
                                 Terimakasih telah memilih, jika anda merasa
-                                telah terbantu silahkan akses fitur kami lainnya untuk menambah wawasan anda
+                                telah terbantu silahkan akses fitur kami lainnya
+                                untuk menambah wawasan anda
                               </p>
                               <div className='button-box flex justify-center items-center gap-4 sm:gap-8 mt-8'>
                                 <Link
@@ -204,7 +249,8 @@ const ResultTest = () => {
                                 <p className='text-xs sm:text-sm lg:text-base'>
                                   Terimakasih telah memilih, jika anda merasa
                                   belum terbantu bisa segera konsultasi dengan
-                                  psikolog rekomendasi kami. Apakah anda ingin konsultasi ?
+                                  psikolog rekomendasi kami. Apakah anda ingin
+                                  konsultasi ?
                                 </p>
                                 <div className='button-box flex justify-center items-center gap-4 sm:gap-8 mt-8'>
                                   <Link

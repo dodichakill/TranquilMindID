@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ReadMoreTimeline from "./ReadMoreTimeline";
 
-const CardTimeline = ({ posTopOne, posTopTwo }) => {
+const CardTimeline = ({ posTopOne, posTopTwo, shortDesc, longDesc }) => {
   const [readMore, setReadMore] = useState(false);
   return (
     <>
@@ -12,7 +12,7 @@ const CardTimeline = ({ posTopOne, posTopTwo }) => {
       ></div>
       <div className={`absolute w-fit ${posTopTwo} mt-1.5`}>
         <div className='box-timeline bg-primary rounded-2xl w-[300px] py-8 text-white px-6 flex justify-center items-center gap-3'>
-          <h2>Menarik napas dalam</h2>
+          <h2>{shortDesc}</h2>
           <input
             type='checkbox'
             name='checkbox'
@@ -29,9 +29,7 @@ const CardTimeline = ({ posTopOne, posTopTwo }) => {
         {readMore && (
           <>
             <ReadMoreTimeline
-              content='Caranya, tarik napas selama 4 detik, kemudian tahan selama 7 detik,
-          lalu lepaskan kembali perlahan-lahan dalam 8 detik. Lakukan beberapa
-          kali hingga pikiran lebih tenang.'
+              content={`${longDesc}`}
             />
           </>
         )}
