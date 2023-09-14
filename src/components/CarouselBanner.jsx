@@ -1,7 +1,8 @@
 "use client";
 
-import { Alert, Button, Carousel } from "flowbite-react";
+import { Button, Carousel } from "flowbite-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function CarouselBanner({ data }) {
@@ -12,18 +13,17 @@ export default function CarouselBanner({ data }) {
         <div className="h-64 sm:h-[40rem]">
           <Carousel>
             {data.map((item) => (
-              <div className="w-full max-w-[75rem] m-auto p-5 box-border flex">
+              <div className="w-full max-w-[75rem] m-auto p-5 box-border flex lg:flex-row md:flex-col-reverse">
                 <div className="w-[40rem] text-white flex box-border flex-col justify-center">
                   <h1 className="heading">{item.title}</h1>
                   <p className="desc">{item.desc}</p>
-                  <div className="">
+                  <Link href={item.link}>
                     <Button
-                      // href={item.link}
                       className="btn_secondary bg-white text-black inline-block "
                     >
                       Selengkapnya
                     </Button>
-                  </div>
+                  </Link>
                 </div>
                 <div className="flex-1 flex justify-center items-center">
                   <Image
@@ -48,14 +48,13 @@ export default function CarouselBanner({ data }) {
               <div className="w-[40rem] text-white flex box-border flex-col justify-center">
                 <h1 className="heading">{item.title}</h1>
                 <p className="desc">{item.desc}</p>
-                <div className="">
+                <Link href={item.link}>
                   <Button
-                    // href={item.link}
                     className="btn_secondary bg-white text-black inline-block "
                   >
                     Selengkapnya
                   </Button>
-                </div>
+                </Link>
               </div>
               <div className="flex-1 flex justify-center items-center">
                 <Image
