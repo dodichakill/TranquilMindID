@@ -2,6 +2,7 @@
 
 import { Button } from "flowbite-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function Headline() {
@@ -17,10 +18,15 @@ export default function Headline() {
           profesional. Transformasi menuju ketenangan batinmu dimulai di sini.
         </p>
         <div className="flex gap-4 z-0">
-          <Button className="btn bg-primary">Mulai Sekarang </Button>
-          <Button className="btn bg-white text-primary hover:text-white">
+          <Link href="#tes" className="btn bg-primary text-white">
+            Mulai Sekarang{" "}
+          </Link>
+          <Link
+            href="/tentang"
+            className="btn bg-white hover:bg-primary text-sm font-light text-primary hover:text-white flex items-center"
+          >
             Kenali Kami
-          </Button>
+          </Link>
         </div>
       </div>
       <Image
