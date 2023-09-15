@@ -6,7 +6,7 @@ import ListProfesional from "./ListProfesional";
 const Rekomendasi = async () => {
   return (
     <>
-      <NavigationBar active="rekomendasi" user={user} />
+      <NavigationBar active="rekomendasi" />
       <Headline />
       <ListProfesional />
     </>

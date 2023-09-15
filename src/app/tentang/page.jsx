@@ -7,7 +7,7 @@ import Teams from "./Teams";
 export default async function Tentang() {
   return (
     <>
-      <NavigationBar active="" user={user} />
+      <NavigationBar active="" />
       <Headline />
       <Background />
       <Features />

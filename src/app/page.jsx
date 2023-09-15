@@ -8,8 +8,7 @@ import Recommendation from "./Recommendation";
 import Reviews from "./Reviews";
 import NavigationBar from "@components/NavigationBar";
 
-export const dynamic = "force-dynamic";
-export default async function Home() {
+export default function Home() {
   const dataBannerCarousel = [
     {
       id: 1,
@@ -36,7 +35,7 @@ export default async function Home() {
 
   return (
     <>
-      <NavigationBar active="beranda" user={user} />
+      <NavigationBar active="beranda" />
 
       <Headline />
       <Features />
