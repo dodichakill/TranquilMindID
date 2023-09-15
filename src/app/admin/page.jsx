@@ -1,16 +1,9 @@
 "use client";
-import { Accordion, Navbar, Table } from "flowbite-react";
-import React, { useEffect } from "react";
-import { AiFillEye, AiOutlineHome } from "react-icons/ai";
-import { FaRightFromBracket } from "react-icons/fa6";
+import { Accordion } from "flowbite-react";
+import React from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Image from "next/image";
 import MFAddEdukasi from "./_components/MFAddEdukasi";
-import { BiSolidDashboard } from "react-icons/bi";
-import { FaTrash } from "react-icons/fa";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import LoadingSpinner from "@components/LoadingSpinner";
 import NavbarMobile from "./_components/NavbarMobile";
 import NavbarDesktop from "./_components/NavbarDesktop";
 import TableEdukasi from "./_components/TableEdukasi";

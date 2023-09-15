@@ -7,8 +7,10 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+// import { cookies } from "next/headers";
 
-const Linimasa = () => {
+const Linimasa = async () => {
   const [totalScore, setTotalScore] = useState(0);
   const [klasifikasi, setKlasifikasi] = useState("");
   const [interpretasi, setInterpretasi] = useState("");
@@ -167,34 +169,34 @@ const Linimasa = () => {
 
   return (
     <>
-      <NavigationBar active='linimasa' />
-      <div className='mt-5 sm:mt-8 lg:mt-20'>
+      <NavigationBar active="linimasa" />
+      <div className="mt-5 sm:mt-8 lg:mt-20">
         {/* Homepage */}
         {!isStart ? (
           <>
-            <div className='wrapper flex justify-between items-center gap-4 lg:flex-row flex-col'>
-              <div className='hero flex flex-col justify-center items-center w-full h-full'>
+            <div className="wrapper flex justify-between items-center gap-4 lg:flex-row flex-col">
+              <div className="hero flex flex-col justify-center items-center w-full h-full">
                 <Image
-                  src='/assets/Linimasa/homepage.gif'
-                  alt='hero-linimasa'
+                  src="/assets/Linimasa/homepage.gif"
+                  alt="hero-linimasa"
                   width={500}
                   height={500}
                 />
-                <h className='text-2xl sm:text-3xl font-semibold mb-3'>
+                <h className="text-2xl sm:text-3xl font-semibold mb-3">
                   Linimasa
                 </h>
-                <p className='text-center sm:text-base text-sm'>
+                <p className="text-center sm:text-base text-sm">
                   Monitoring perjalanan pulihkan jiwa dan <br /> kesehatan
                   mentalmu.
                 </p>
               </div>
-              <div className='start-section text-white bg-primary flex justify-center flex-col items-center w-full h-[500px] sm:h-[700px] gap-4'>
-                <h1 className='text-xl sm:text-3xl font-semibold text-center w-[300px] sm:w-[450px] mb-2'>
+              <div className="start-section text-white bg-primary flex justify-center flex-col items-center w-full h-[500px] sm:h-[700px] gap-4">
+                <h1 className="text-xl sm:text-3xl font-semibold text-center w-[300px] sm:w-[450px] mb-2">
                   Mulai tes yuk! biar kamu tau keadaan mentalmu
                 </h1>
                 <button
                   onClick={() => setIsStart(true)}
-                  className='text-black bg-white rounded-full px-6 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-white hover:bg-transparent border-4 border-transparent hover:border-white transition'
+                  className="text-black bg-white rounded-full px-6 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-white hover:bg-transparent border-4 border-transparent hover:border-white transition"
                 >
                   Mulai
                 </button>
@@ -204,7 +206,7 @@ const Linimasa = () => {
         ) : countQuestion <= 9 && isDone == false ? (
           <>
             <ProgressBarLinimasa question={countQuestion} />
-            <div className='wrapper mb-[3rem] sm:mb-[4.8rem] lg:mb-16'>
+            <div className="wrapper mb-[3rem] sm:mb-[4.8rem] lg:mb-16">
               <Questions
                 key={questionList[countQuestion - 1].id}
                 question={questionList[countQuestion - 1].question}
@@ -218,74 +220,74 @@ const Linimasa = () => {
             <>
               {totalScore >= 5 ? (
                 <>
-                  <div className='container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen'>
-                    <div className='content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0'>
-                      <h1 className='text-xl sm:text-3xl lg:text-5xl font-medium sm:w-[700px] tracking-wide text-slate-900'>
+                  <div className="container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen">
+                    <div className="content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0">
+                      <h1 className="text-xl sm:text-3xl lg:text-5xl font-medium sm:w-[700px] tracking-wide text-slate-900">
                         Dari hasil test yang kamu jalani, kamu terindikasi{" "}
-                        <span className='text-primary'>
+                        <span className="text-primary">
                           {resultTest.classification}
                         </span>
                       </h1>
-                      <p className='sm:text-base text-xs text-slate-600'>
+                      <p className="sm:text-base text-xs text-slate-600">
                         Tetap tenang kamu tidak usah khawatir, yuk mulai
-                        menyembuhkan <br className='hidden sm:block' />{" "}
+                        menyembuhkan <br className="hidden sm:block" />{" "}
                         {resultTest.classification} kamu
                       </p>
                       <button
                         onClick={() => router.push("/linimasa/result-test")}
-                        className='text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3'
+                        className="text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3"
                       >
                         Mulai
                       </button>
                     </div>
                     <Image
-                      src='/assets/Linimasa/diagnosis.gif'
+                      src="/assets/Linimasa/diagnosis.gif"
                       width={500}
                       height={500}
-                      alt='hero-diagnosys'
-                      className='w-full sm:w-[500px] lg:w-[1000px]'
+                      alt="hero-diagnosys"
+                      className="w-full sm:w-[500px] lg:w-[1000px]"
                     />
                   </div>
                 </>
               ) : (
                 <>
-                  <div className='container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen'>
-                    <div className='content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0'>
-                      <h1 className='text-xl sm:text-3xl lg:text-5xl font-medium sm:w-[700px] tracking-wide text-slate-900'>
+                  <div className="container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen">
+                    <div className="content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0">
+                      <h1 className="text-xl sm:text-3xl lg:text-5xl font-medium sm:w-[700px] tracking-wide text-slate-900">
                         Dari hasil test yang kamu jalani, kamu tidak ada gejala
                         depresi
                       </h1>
-                      <p className='sm:text-base text-xs text-slate-600'>
+                      <p className="sm:text-base text-xs text-slate-600">
                         Kamu tidak memerlukan pengobatan khusus, namun dapat
                         melakukan tindakan pencegahan seperti menjaga kesehatan
                         fisik dan mental, seperti olahraga teratur, makan
                         makanan sehat, dan mengelola stres dengan baik. Apakah
                         kamu ingin menjalani test lagi ?
                       </p>
-                      <div className='button-box flex justify-start items-center gap-2 sm:gap-4'>
+                      <div className="button-box flex justify-start items-center gap-2 sm:gap-4">
                         <button
                           onClick={() => {
                             setCountQuestion(1);
                             setIsDone(false);
                           }}
-                          className='text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3'
+                          className="text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3"
                         >
                           Iya
                         </button>
                         <Link
                           href="/"
-                          className='text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3'
+                          className="text-white text-sm sm:text-base bg-primary rounded-full px-5 sm:px-8 py-1 sm:py-[0.4rem] font-semibold hover:text-primary hover:bg-transparent border-4 border-transparent hover:border-primary transition mt-2 sm:mt-3"
                         >
                           Tidak
                         </Link>
                       </div>
                     </div>
                     <Image
-                      src='/assets/Linimasa/diagnosis.gif'
+                      src="/assets/Linimasa/diagnosis.gif"
                       width={500}
                       height={500}
-                      alt='hero-diagnosys'
-                      className='w-full sm:w-[500px] lg:w-[1000px]'
+                      alt="hero-diagnosys"
+                      className="w-full sm:w-[500px] lg:w-[1000px]"
                     />
                   </div>
                 </>
