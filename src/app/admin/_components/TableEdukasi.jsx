@@ -2,7 +2,7 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Table } from "flowbite-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
@@ -17,23 +17,7 @@ export default async function TableEdukasi() {
   ];
 
   const supabase = createClientComponentClient();
-  const [edukasi, setEdukasi] = useState([]);
-
-  useEffect(() => {
-    fetchEdukasi();
-
-    const subscription = supabase
-      .from("edukasi")
-      .on("*", () => fetchEdukasi())
-      .subscribe();
-
-    return () => supabase.removeSubscription(subscription);
-  }, []);
-
-  async function fetchEdukasi() {
-    const { data } = await supabase.from("edukasi").select();
-    setEdukasi(data);
-  }
+  const { data: edukasi } = await supabase.from("edukasi").select();
 
   return edukasi ? (
     <Table striped>
