@@ -216,7 +216,7 @@ const Linimasa = () => {
         ) : (
           isDone && (
             <>
-              {totalScore > 4 ? (
+              {totalScore >= 5 ? (
                 <>
                   <div className='container flex justify-between items-center gap-3 flex-col-reverse lg:flex-row h-screen'>
                     <div className='content flex flex-col justify-center items-start gap-2 w-full px-4 sm:px-8 lg:px-0 -translate-y-8 lg:translate-y-0'>

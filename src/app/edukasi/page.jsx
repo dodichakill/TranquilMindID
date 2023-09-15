@@ -135,7 +135,7 @@ const Edukasi = () => {
   return (
     <>
       <NavigationBar active='edukasi' />
-      <div className='my-5 sm:my-8 lg:my-20 flex flex-col justify-center items-center gap-8 sm:gap-12 lg:gap-16'>
+      <div className='my-5 sm:my-8 lg:my-[5.5rem] flex flex-col justify-center items-center gap-8 sm:gap-12 lg:gap-16'>
         <CarouselBanner data={dataBannerCarousel} />
         {!loading ? (
           <>

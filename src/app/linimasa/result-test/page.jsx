@@ -9,6 +9,9 @@ import {
   AiOutlineClose,
   AiOutlineArrowRight,
 } from "react-icons/ai";
+import { VscBook } from "react-icons/vsc";
+import { BiPodcast } from "react-icons/bi";
+import { Tooltip } from "flowbite-react";
 
 const ResultTest = () => {
   const [dataResult, setDataResult] = useState(
@@ -17,6 +20,12 @@ const ResultTest = () => {
   const [nextStep, setNextStep] = useState(false);
   const [popUpYes, setPopUpYes] = useState(false);
   const [popUpNo, setPopUpNo] = useState(false);
+  const [checkedCount, setCheckedCount] = useState(1);
+
+  const checkedHandler = () => {
+    setCheckedCount((c) => c += 1);
+    return true;
+  };
 
   useEffect(() => {
     setDataResult(JSON.parse(localStorage.getItem("resultTest")));
@@ -26,7 +35,9 @@ const ResultTest = () => {
     <>
       <NavigationBar active='linimasa' />
       <div className='wrapper lg:mt-[5.25rem]'>
-        {dataResult.classification == "Depresi Sedang" || dataResult.classification == "Depresi Berat" || dataResult.classification == "Depresi Sangat Berat" ? (
+        {dataResult.classification == "Depresi Sedang" ||
+        dataResult.classification == "Depresi Berat" ||
+        dataResult.classification == "Depresi Sangat Berat" ? (
           <>
             <div className="main-hero w-screen h-screen bg-[url('/assets/Linimasa/hero-result.jpeg')] bg-cover bg-no-repeat flex bg-fixed justify-center items-center text-center">
               <div className='bg-white/50 backdrop-blur-md w-[300px] h-[200px] sm:w-[600px] lg:w-[700px] sm:h-[300px] flex justify-center items-center flex-col p-4 sm:px-10 gap-3 rounded-lg shadow'>
@@ -38,9 +49,9 @@ const ResultTest = () => {
                 </p>
                 <Link
                   href='/rekomendasi'
-                  className='text-[0.6rem] sm:text-sm flex justify-center items-center gap-2 font-medium'
+                  className='text-[0.6rem] sm:text-sm flex justify-center items-center gap-2 font-medium text-white bg-primary px-3 py-2 sm:px-4 sm:py-3 rounded-full transition'
                 >
-                  Beralih ke halaman Rekomendasi
+                  Rekomendasi Psikolog
                   <AiOutlineArrowRight />
                 </Link>
               </div>
@@ -96,6 +107,7 @@ const ResultTest = () => {
                 posTopTwo='top-[1.5rem]'
                 shortDesc='Melakukan Aktivitas'
                 longDesc='Lakukan aktivitas yang disukai, seperti menonton film atau mendengarkan musik. Berolahraga ringan, seperti berjalan-jalan atau yoga. Anda dianjurkan untuk mendengarkan musik musik jazz, pop, dan klasik.'
+                handleChecked={checkedHandler}
               />
             </li>
             <li className='mb-10 ml-4'>
@@ -104,6 +116,8 @@ const ResultTest = () => {
                 posTopTwo='top-[14.5rem]'
                 shortDesc='Tidur Yang Cukup'
                 longDesc='Tidur dan bangun pada jam yang sama setiap hari. Hindari konsumsi kafein dan alkohol. Anda dianjurkan untuk melakukan relaksasi sebelum tidur, seperti meditasi atau pernapasan dalam-dalam.'
+                handleChecked={checkedHandler}
+                disabledCheck={checkedCount < 2}
               />
             </li>
             <li className='mb-10 ml-4'>
@@ -113,6 +127,8 @@ const ResultTest = () => {
                 shortDesc='Makan Makanan Sehat'
                 longDesc='Anda dianjurkan untuk makan makanan yang sehat dan bergizi. Hindari makanan cepat saji dan makanan yang mengandung gula berlebih. Anda dianjurkan makan dalam porsi kecil tapi sering.
                 '
+                handleChecked={checkedHandler}
+                disabledCheck={checkedCount < 3}
               />
             </li>
             <li className='mb-10 ml-4'>
@@ -122,6 +138,8 @@ const ResultTest = () => {
                 shortDesc='Melakukan Interaksi Sosial'
                 longDesc='Anda dianjurkan untuk bertemu dengan teman atau keluarga. Anda bisa melakukan kegiatan sosial, seperti bergabung dengan klub atau organisasi.
                 '
+                handleChecked={checkedHandler}
+                disabledCheck={checkedCount < 4}
               />
             </li>
             <li className='mb-10 ml-4'>
@@ -129,8 +147,10 @@ const ResultTest = () => {
                 posTopOne='top-[55.5rem]'
                 posTopTwo='top-[53.5rem]'
                 shortDesc='Berkegiatan Yang Disukai'
-                longDesc='Anda dianjurkan untuk melakukan kegiatan yang memberikan rasa senang seeprti hobi Anda. Anda bisa melakukan kegiatan yang memberikan rasa kepuasan, seperti berkebun atau memasak.
+                longDesc='Anda dianjurkan untuk melakukan kegiatan yang memberikan rasa senang seperti hobi Anda. Anda bisa melakukan kegiatan yang memberikan rasa kepuasan, seperti berkebun atau memasak.
                '
+                handleChecked={checkedHandler}
+                disabledCheck={checkedCount < 5}
               />
             </li>
             <li className='mb-10 ml-4'>
@@ -145,12 +165,16 @@ const ResultTest = () => {
                         Kamu telah menyelesaikan semua tahap
                       </h2>
                     </div>
-                    <button
-                      className='font-medium text-xs sm:text-sm bg-primary text-white px-3 py-[0.35rem] rounded-2xl shadow-xl translate-x-[5.5rem] sm:translate-x-[10rem]'
-                      onClick={() => setNextStep(true)}
-                    >
-                      Tekan untuk langkah selanjutnya
-                    </button>
+                    <Tooltip placement="bottom" content="Selesaikan semua langkah" className="translate-x-[5.5rem] sm:translate-x-[10rem] text-xs">
+                      <button
+                        className='font-medium text-xs sm:text-sm bg-primary text-white px-3 py-[0.35rem] rounded-2xl shadow-xl translate-x-[5.5rem] sm:translate-x-[10rem]'
+                        onClick={() => {
+                          checkedCount >= 5 && setNextStep(true);
+                        }}
+                      >
+                        Tekan untuk langkah selanjutnya
+                      </button>
+                    </Tooltip>
                   </>
                 ) : (
                   <>
@@ -218,14 +242,16 @@ const ResultTest = () => {
                               <div className='button-box flex justify-center items-center gap-4 sm:gap-8 mt-8'>
                                 <Link
                                   href='/edukasi'
-                                  className='yes-btn text-xs sm:text-base w-24 sm:w-28 h-8 sm:h-9 p-1 flex justify-center items-center bg-primary text-white rounded-full shadow cursor-pointer'
+                                  className='yes-btn text-xs sm:text-base w-24 sm:w-28 h-8 sm:h-9 p-1 flex justify-center items-center bg-primary text-white rounded-full shadow cursor-pointer gap-2'
                                 >
+                                  <VscBook />
                                   Edukasi
                                 </Link>
                                 <Link
                                   href='/podcast'
-                                  className='no-btn text-xs sm:text-base w-24 sm:w-28 h-8 sm:h-9 p-1 flex justify-center items-center bg-primary text-white rounded-full shadow cursor-pointer'
+                                  className='no-btn text-xs sm:text-base w-24 sm:w-28 h-8 sm:h-9 p-1 flex justify-center items-center bg-primary text-white rounded-full shadow cursor-pointer gap-2'
                                 >
+                                  <BiPodcast />
                                   Podcast
                                 </Link>
                               </div>
