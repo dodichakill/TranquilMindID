@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import ModalForm from "./ModalForm";
 import InputText from "@components/InputText";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { revalidatePath } from "next/cache";
 
 export default function MFAddEdukasi() {
   const [showModal, setShowModal] = useState(false);
@@ -12,7 +14,30 @@ export default function MFAddEdukasi() {
   const [content, setContent] = useState("");
 
   const roleForm = showModal === true;
-
+  const handleSubmit = async () => {
+    try {
+      const supabase = createClientComponentClient();
+      const { data, error } = await supabase
+        .from("edukasi")
+        .insert([
+          {
+            title,
+            image: img,
+            description: desc,
+            content,
+          },
+        ])
+        .select();
+      setTitle("");
+      setImg("");
+      setDesc("");
+      setContent("");
+      setShowModal(false);
+      revalidatePath("/admin");
+    } catch (err) {
+      console.log("problem cuy : ", err);
+    }
+  };
   return (
     <ModalForm
       showRole={roleForm}
@@ -21,12 +46,7 @@ export default function MFAddEdukasi() {
       textBtn="Tambah Data"
       size="2xl"
       nameModal="Tambah Data Artikel Edukasi"
-      onSubmit={() => {
-        console.log(title);
-        console.log(img);
-        console.log(desc);
-        console.log(content);
-      }}
+      onSubmit={handleSubmit}
     >
       <InputText
         id={"title"}
