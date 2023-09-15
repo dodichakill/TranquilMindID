@@ -1,19 +1,13 @@
 import Headline from "@app/rekomendasi/Headline";
 import NavigationBar from "@components/NavigationBar";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+
 import React from "react";
 import Profile from "./Profile";
 import { BsTicketPerforatedFill, BsWhatsapp } from "react-icons/bs";
 const DetailRekomendasi = async () => {
-  const supabase = createServerComponentClient({ cookies });
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   return (
     <>
-      <NavigationBar active="rekomendasi" user={user} />
+      <NavigationBar active="rekomendasi" />
       <div className="flex flex-col md:flex-row mt-5 md:mt-24">
         <div className="container_2">
           <Profile />
