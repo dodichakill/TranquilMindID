@@ -7,8 +7,6 @@ import Podcasts from "./Podcasts";
 import Recommendation from "./Recommendation";
 import Reviews from "./Reviews";
 import NavigationBar from "@components/NavigationBar";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic";
 export default async function Home() {
@@ -36,14 +34,9 @@ export default async function Home() {
     },
   ];
 
-  const supabase = createServerComponentClient({ cookies });
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   return (
     <>
-      <NavigationBar active='beranda' user={user} />
+      <NavigationBar active="beranda" user={user} />
 
       <Headline />
       <Features />
