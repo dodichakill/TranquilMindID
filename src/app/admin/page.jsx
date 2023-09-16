@@ -11,6 +11,7 @@ import TableEdukasi from "./_components/TableEdukasi";
 const MainContent = () => {
   return (
     <Accordion>
+      {/* edukasi start*/}
       <Accordion.Panel>
         <Accordion.Title>Data Artikel Edukasi</Accordion.Title>
         <Accordion.Content>
@@ -18,6 +19,17 @@ const MainContent = () => {
           <TableEdukasi />
         </Accordion.Content>
       </Accordion.Panel>
+      {/* edukasi end*/}
+
+      {/* edukasi start*/}
+      {/* <Accordion.Panel>
+        <Accordion.Title>Data Tenaga Profesional</Accordion.Title>
+        <Accordion.Content>
+          <MFAddEdukasi />
+          <TableEdukasi />
+        </Accordion.Content>
+      </Accordion.Panel> */}
+      {/* edukasi end*/}
     </Accordion>
   );
 };

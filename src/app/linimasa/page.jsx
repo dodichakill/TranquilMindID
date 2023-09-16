@@ -7,6 +7,8 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import ButtonBackTop from "@components/ButtonBackTop";
+import FooterSection from "@components/FooterSection";
 // import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 // import { cookies } from "next/headers";
 
@@ -296,6 +298,8 @@ const Linimasa = async () => {
           )
         )}
       </div>
+      <FooterSection />
+      <ButtonBackTop />
     </>
   );
 };

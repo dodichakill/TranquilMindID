@@ -7,6 +7,8 @@ import Podcasts from "./Podcasts";
 import Recommendation from "./Recommendation";
 import Reviews from "./Reviews";
 import NavigationBar from "@components/NavigationBar";
+import FooterSection from "@components/FooterSection";
+import ButtonBackTop from "@components/ButtonBackTop";
 
 export default function Home() {
   const dataBannerCarousel = [
@@ -47,6 +49,9 @@ export default function Home() {
       <CarouselBanner data={dataBannerCarousel} />
 
       <Reviews />
+
+      <FooterSection />
+      <ButtonBackTop />
     </>
   );
 }

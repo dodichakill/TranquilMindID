@@ -50,7 +50,7 @@ export default function InputText({
             <Label htmlFor={id} value={title} />
             <JoditEditor
               ref={editor}
-                value={value}
+              value={value}
               onChange={onChange}
               name={id}
               config={config}

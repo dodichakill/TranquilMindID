@@ -12,6 +12,7 @@ const ModalForm = ({
   onSubmit,
   children,
   onBtnClick,
+  disabled,
 }) => {
   return (
     <>
@@ -30,7 +31,13 @@ const ModalForm = ({
               <Button onClick={onClose} className="bg-red-500 hover:bg-red-600">
                 Batalkan
               </Button>
-              <Button onClick={onSubmit}>Submit</Button>
+              <Button
+                onClick={onSubmit}
+                disabled={disabled}
+                className="disabled:bg-slate-500 disabled:cursor-not-allowed"
+              >
+                Submit
+              </Button>
             </div>
           </div>
         </Modal.Body>

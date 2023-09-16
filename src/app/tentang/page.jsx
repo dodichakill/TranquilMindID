@@ -12,6 +12,8 @@ export default async function Tentang() {
       <Background />
       <Features />
       <Teams />
+      <FooterSection />
+      <ButtonBackTop />
     </>
   );
 }

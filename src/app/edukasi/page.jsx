@@ -4,6 +4,8 @@ import NavigationBar from "@components/NavigationBar";
 import CarouselBanner from "@components/CarouselBanner";
 import CardArticle from "@components/CardArticle";
 import { useEffect, useState } from "react";
+import FooterSection from "@components/FooterSection";
+import ButtonBackTop from "@components/ButtonBackTop";
 
 export const dataArtikel = [
   {
@@ -134,20 +136,20 @@ const Edukasi = () => {
 
   return (
     <>
-      <NavigationBar active='edukasi' />
-      <div className='my-5 sm:my-8 lg:my-[5.5rem] flex flex-col justify-center items-center gap-8 sm:gap-12 lg:gap-16'>
+      <NavigationBar active="edukasi" />
+      <div className="my-5 sm:my-8 lg:my-[5.5rem] flex flex-col justify-center items-center gap-8 sm:gap-12 lg:gap-16">
         <CarouselBanner data={dataBannerCarousel} />
         {!loading ? (
           <>
-            <div className='container grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8'>
-              <div className='title w-[300px] sm:w-[600px] lg:text-start text-center'>
+            <div className="container grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8">
+              <div className="title w-[300px] sm:w-[600px] lg:text-start text-center">
                 <h1
-                  className='text-lg sm:text-3xl lg:text-4xl font-semibold text-primary mb-2'
+                  className="text-lg sm:text-3xl lg:text-4xl font-semibold text-primary mb-2"
                   style={{ textShadow: "0.5px 0.5px 0.5px rgba(0,0,0,0.3)" }}
                 >
                   Kenali Berbagai Gangguan Mental
                 </h1>
-                <p className='text-xs sm:text-lg'>
+                <p className="text-xs sm:text-lg">
                   Ada berbagai macam gangguan mental dan cara penyembuhannya.
                   Baca artikel untuk menambah pengetahuan Anda
                 </p>
@@ -157,7 +159,7 @@ const Edukasi = () => {
                   <CardArticle
                     titleArticle={data.title}
                     imgArticle={data.image}
-                    shortDesc={data.deskripsi.slice(0, 90)}
+                    shortDesc={data.description.slice(0, 90)}
                     linkArticle={data.title}
                   />
                 </>
@@ -166,10 +168,12 @@ const Edukasi = () => {
           </>
         ) : (
           <>
-            <div className='loading'>Loading data...</div>
+            <div className="loading">Loading data...</div>
           </>
         )}
       </div>
+      <FooterSection />
+      <ButtonBackTop />
     </>
   );
 };

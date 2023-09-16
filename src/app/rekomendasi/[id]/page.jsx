@@ -4,6 +4,8 @@ import NavigationBar from "@components/NavigationBar";
 import React from "react";
 import Profile from "./Profile";
 import { BsTicketPerforatedFill, BsWhatsapp } from "react-icons/bs";
+import FooterSection from "@components/FooterSection";
+import ButtonBackTop from "@components/ButtonBackTop";
 const DetailRekomendasi = async () => {
   return (
     <>
@@ -39,6 +41,8 @@ const DetailRekomendasi = async () => {
           ></iframe>
         </div>
       </div>
+      <FooterSection />
+      <ButtonBackTop />
     </>
   );
 };

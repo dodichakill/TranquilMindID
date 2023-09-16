@@ -11,6 +11,8 @@ import { useSearchParams } from "next/navigation";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { AiFillWarning } from "react-icons/ai";
 import { Alert } from "flowbite-react";
+import FooterSection from "@components/FooterSection";
+import ButtonBackTop from "@components/ButtonBackTop";
 
 const RegisterComponent = () => {
   const [eyeClose, setEyeClose] = React.useState(true);
@@ -228,6 +230,8 @@ const RegisterComponent = () => {
         <div className="bubbles lg:visible invisible absolute -left-10 -bottom-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full"></div>
         <div className="bubbles lg:invisible visible absolute -right-10 -bottom-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full"></div>
       </div>
+      <FooterSection />
+      <ButtonBackTop />
     </>
   );
 };

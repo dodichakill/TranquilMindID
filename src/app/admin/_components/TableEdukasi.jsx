@@ -1,13 +1,22 @@
 "use client";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Table } from "flowbite-react";
+import { db } from "@app/firebase";
+import {
+  collection,
+  query,
+  onSnapshot,
+  deleteDoc,
+  doc,
+} from "@firebase/firestore";
+import { Button, Table } from "flowbite-react";
 import Image from "next/image";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillEye } from "react-icons/ai";
-import { FaEdit } from "react-icons/fa";
+// import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
+import { toast } from "react-toastify";
+import MSEdukasi from "./MSEdukasi";
 
-export default async function TableEdukasi() {
+export default function TableEdukasi() {
   const cols = [
     "No",
     "Judul Artikel",
@@ -16,8 +25,31 @@ export default async function TableEdukasi() {
     "Aksi",
   ];
 
-  const supabase = createClientComponentClient();
-  const { data: edukasi } = await supabase.from("edukasi").select();
+  const [edukasi, setEdukasi] = useState([]);
+
+  useEffect(() => {
+    const q = query(collection(db, "edukasi"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let itemArr = [];
+      console.log(" querySnapshot : ", querySnapshot);
+
+      querySnapshot.forEach((doc) => {
+        console.log(doc);
+        itemArr.push({ ...doc.data(), id: doc.id });
+      });
+
+      setEdukasi(itemArr);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const handleDelete = async (id) => {
+    await deleteDoc(doc(db, "edukasi", id));
+    toast.success("berhasil menghapus data artikel");
+  };
 
   return edukasi ? (
     <Table striped>
@@ -40,17 +72,15 @@ export default async function TableEdukasi() {
             <Table.Cell>
               <Image src={row.image} alt={row.title} width={100} height={100} />
             </Table.Cell>
-            <Table.Cell>{row.description}</Table.Cell>
+            <Table.Cell>{row.deskripsi.slice(0, 55)}...</Table.Cell>
             <Table.Cell className="grid gap-2">
-              <button className="font-medium bg-primary items-center px-3 py-2 text-white hover:underline rounded-lg flex gap-2">
-                <AiFillEye className="mr-2" /> Lihat Konten
-              </button>
-              <button className="font-medium bg-yellow-400 items-center px-3 py-2 text-white hover:underline rounded-lg flex gap-2">
-                <FaEdit className="mr-2" /> Ubah Data
-              </button>
-              <button className="font-medium bg-red-500 items-center px-3 py-2 text-white hover:underline rounded-lg flex gap-2">
-                <FaTrash className="mr-2" /> Hapus Data
-              </button>
+              <MSEdukasi data={row} />
+              <Button
+                className="flex gap-2 items-center bg-red-500"
+                onClick={() => handleDelete(row.id)}
+              >
+                <FaTrash className="mr-2" /> <span>Hapus Data</span>
+              </Button>
             </Table.Cell>
           </Table.Row>
         ))}
