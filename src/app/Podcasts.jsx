@@ -79,8 +79,6 @@ export default function Podcasts() {
         )}
         {/* cards end */}
       </div>
-      <FooterSection />
-      <ButtonBackTop />
     </>
   );
 }
