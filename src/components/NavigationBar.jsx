@@ -23,7 +23,6 @@ const NavigationBar = ({ active, user }) => {
   const [isProfileClick, setIsProfileClick] = React.useState(false);
 
   useEffect(() => {
-    console.log(user);
     const nowPathname = window.location.pathname;
     if (nowPathname === "/login" || nowPathname === "/register") {
       setPathname(nowPathname);
