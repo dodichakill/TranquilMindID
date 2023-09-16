@@ -1,0 +1,7 @@
+{
+  "permissions": ["identity"],
+  "oauth2": {
+    "client_id": "185312979519-4j2eknnopet0bl63h1b05rgbqr6kr0s4.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
+  }
+}

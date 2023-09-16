@@ -5,11 +5,12 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+    "./public/**/*.html",
   ],
   theme: {
     fontFamily: {
-      'inter': ['Inter', 'sans-serif'],
-      'roboto': ['Inter', 'sans-serif'],
+      inter: ["Inter", "sans-serif"],
+      roboto: ["Roboto", "sans-serif"],
     },
     extend: {
       backgroundImage: {
@@ -18,13 +19,19 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       textColor: {
-        "primary": "#128EF0",
-      },
-      borderColor: {
-        "primary": "#128EF0",
+        primary: "#128EF0",
       },
       backgroundColor: {
-        "primary": "#128EF0",
+        primary: "#128EF0",
+      },
+      borderColor: {
+        primary: "#128EF0",
+      },
+      backgroundColor: {
+        primary: "#128EF0",
+      },
+      ringColor: {
+        primary: "#128EF0",
       }
     },
   },

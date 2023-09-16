@@ -1,46 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html,
+* {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  overflow-x: hidden !important;
+}
+
 /* Spinner Loading */
 .spinner {
-   position: relative;
-   width: 56px;
-   height: 56px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .spinner::before,
 .spinner::after {
-   border: 6.7px solid #165994;
-   border-radius: 50%;
-   position: absolute;
-   content: '';
-   display: block;
+  border: 6.7px solid #165994;
+  border-radius: 50%;
+  position: absolute;
+  content: "";
+  display: block;
 }
 
 .spinner::before {
-   width: 33.6px;
-   height: 33.6px;
-   border-bottom-color: transparent;
-   border-left-color: transparent;
-   animation: spinner-1o3y8q 0.75s infinite linear reverse;
+  width: 33.6px;
+  height: 33.6px;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  animation: spinner-1o3y8q 0.75s infinite linear reverse;
 }
 
 .spinner::after {
-   animation: spinner-1o3y8q 0.5s infinite linear;
-   height: 56px;
-   width: 56px;
-   border-right-color: transparent;
-   border-top-color: transparent;
+  animation: spinner-1o3y8q 0.5s infinite linear;
+  height: 56px;
+  width: 56px;
+  border-right-color: transparent;
+  border-top-color: transparent;
 }
 
 @keyframes spinner-1o3y8q {
-   to {
-      transform: rotate(360deg);
-   }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Text */
+.heading {
+  @apply text-2xl md:text-5xl leading-tight mb-5 font-bold;
+}
+.sub_heading {
+  @apply text-lg md:text-xl leading-tight mb-3 font-semibold;
+}
+
+.desc {
+  @apply font-roboto text-base mb-5;
+}
+
+/* button */
+.btn {
+  @apply px-3 py-2 sm:px-4 font-bold rounded-full text-sm sm:text-lg shadow;
+}
+
+.btn_secondary {
+  @apply px-4 py-2 font-bold rounded-full text-base shadow hover:text-white hover:bg-blue-400;
+}
+
+/* container */
+.container {
+  @apply w-full max-w-[85rem] m-auto p-5 box-border;
+}
+
+.container_2 {
+  @apply w-full max-w-[42rem] m-auto p-5 box-border;
+}
+
+/* input field */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/* loader api */
+.custom-loader {
+  width: 50px;
+  height: 24px;
+  background: radial-gradient(circle closest-side, #128ef0 90%, #0000) 0% 50%,
+    radial-gradient(circle closest-side, #128ef0 90%, #0000) 50% 50%,
+    radial-gradient(circle closest-side, #128ef0 90%, #0000) 100% 50%;
+  background-size: calc(100% / 3) 12px;
+  background-repeat: no-repeat;
+  animation: d3 1s infinite linear;
+}
+@keyframes d3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
 }

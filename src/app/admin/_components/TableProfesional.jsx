@@ -1,0 +1,92 @@
+"use client";
+import { db } from "@app/firebase";
+import LoadingSpinner from "@components/LoadingSpinner";
+import {
+  collection,
+  query,
+  onSnapshot,
+  deleteDoc,
+  doc,
+} from "@firebase/firestore";
+import { Button, Table } from "flowbite-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { FaTrash } from "react-icons/fa6";
+import { toast } from "react-toastify";
+
+export default function TableProfesional() {
+  const cols = [
+    "Nama",
+    "Foto",
+    "Deskripsi",
+    "Tempat Kerja",
+    "Pendidikan",
+    "STR",
+  ];
+
+  const [profesional, setProfesional] = useState([]);
+
+  useEffect(() => {
+    const q = query(collection(db, "profesional"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let itemArr = [];
+      console.log(" querySnapshot : ", querySnapshot);
+
+      querySnapshot.forEach((doc) => {
+        console.log(doc);
+        itemArr.push({ ...doc.data(), id: doc.id });
+      });
+
+      setProfesional(itemArr);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const handleDelete = async (id) => {
+    await deleteDoc(doc(db, "profesional", id));
+    toast.success("berhasil menghapus data!");
+  };
+
+  return profesional ? (
+    <Table striped className="overflow-auto">
+      <Table.Head>
+        {cols.map((col) => (
+          <Table.HeadCell>{col}</Table.HeadCell>
+        ))}
+        <Table.HeadCell>
+          <span className="sr-only">Edit</span>
+        </Table.HeadCell>
+      </Table.Head>
+      <Table.Body className="divide-y">
+        {profesional.map((row, i) => (
+          <Table.Row
+            key={row.id}
+            className="bg-white dark:border-gray-700 dark:bg-gray-800"
+          >
+            <Table.Cell>{row.name}</Table.Cell>
+            <Table.Cell>
+              <Image src={row.img} alt={row.name} width={100} height={100} />
+            </Table.Cell>
+            <Table.Cell>{row.desc.slice(0, 55)}...</Table.Cell>
+            <Table.Cell>{row.placeWork}</Table.Cell>
+            <Table.Cell>{row.educations}</Table.Cell>
+            <Table.Cell>{row.STR}</Table.Cell>
+            <Table.Cell className="grid gap-2">
+              <Button
+                className="flex gap-2 items-center bg-red-500"
+                onClick={() => handleDelete(row.id)}
+              >
+                <FaTrash className="mr-2" /> <span>Hapus Data</span>
+              </Button>
+            </Table.Cell>
+          </Table.Row>
+        ))}
+      </Table.Body>
+    </Table>
+  ) : (
+    <LoadingSpinner />
+  );
+}
