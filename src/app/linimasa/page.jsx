@@ -9,8 +9,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ButtonBackTop from "@components/ButtonBackTop";
 import FooterSection from "@components/FooterSection";
-// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-// import { cookies } from "next/headers";
 
 const Linimasa = async () => {
   const [totalScore, setTotalScore] = useState(0);

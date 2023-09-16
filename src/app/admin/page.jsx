@@ -7,6 +7,8 @@ import MFAddEdukasi from "./_components/MFAddEdukasi";
 import NavbarMobile from "./_components/NavbarMobile";
 import NavbarDesktop from "./_components/NavbarDesktop";
 import TableEdukasi from "./_components/TableEdukasi";
+import MFAddProfesional from "./_components/MFAddProfesional";
+import TableProfesional from "./_components/TableProfesional";
 
 const MainContent = () => {
   return (
@@ -21,14 +23,14 @@ const MainContent = () => {
       </Accordion.Panel>
       {/* edukasi end*/}
 
-      {/* edukasi start*/}
-      {/* <Accordion.Panel>
-        <Accordion.Title>Data Tenaga Profesional</Accordion.Title>
+      {/* rekomendasi start*/}
+      <Accordion.Panel>
+        <Accordion.Title>Tenaga Profesional</Accordion.Title>
         <Accordion.Content>
-          <MFAddEdukasi />
-          <TableEdukasi />
+          <MFAddProfesional />
+          <TableProfesional />
         </Accordion.Content>
-      </Accordion.Panel> */}
+      </Accordion.Panel>
       {/* edukasi end*/}
     </Accordion>
   );

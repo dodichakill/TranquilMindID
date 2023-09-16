@@ -18,7 +18,7 @@ export default function Headline() {
               Dapatkan informasi tentang rekomendasi psikolog dan psikiater
               terbaik yang dapat membantu anda lebih lanjut
             </p>
-            <div className="w-full relative">
+            {/* <div className="w-full relative">
               <input
                 type="text"
                 placeholder="Cari berdasarkan nama / jenis profesi"
@@ -27,7 +27,7 @@ export default function Headline() {
                 value={search}
               />
               <FaSearch className="cursor-pointer absolute right-5 text-xl top-[0.8rem] text-slate-500" />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex-1 hidden md:flex items-center justify-center rounded-l-xl bg-primary py-10 md:py-20">

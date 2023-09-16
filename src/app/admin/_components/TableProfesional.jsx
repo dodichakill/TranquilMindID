@@ -1,5 +1,6 @@
 "use client";
 import { db } from "@app/firebase";
+import LoadingSpinner from "@components/LoadingSpinner";
 import {
   collection,
   query,
@@ -10,26 +11,23 @@ import {
 import { Button, Table } from "flowbite-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { AiFillEye } from "react-icons/ai";
-// import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
 import { toast } from "react-toastify";
-import MSEdukasi from "./MSEdukasi";
-import LoadingSpinner from "@components/LoadingSpinner";
 
-export default function TableEdukasi() {
+export default function TableProfesional() {
   const cols = [
-    "No",
-    "Judul Artikel",
-    "Foto Artikel",
-    "Deskripsi singkat",
-    "Aksi",
+    "Nama",
+    "Foto",
+    "Deskripsi",
+    "Tempat Kerja",
+    "Pendidikan",
+    "STR",
   ];
 
-  const [edukasi, setEdukasi] = useState([]);
+  const [profesional, setProfesional] = useState([]);
 
   useEffect(() => {
-    const q = query(collection(db, "edukasi"));
+    const q = query(collection(db, "profesional"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let itemArr = [];
       console.log(" querySnapshot : ", querySnapshot);
@@ -39,7 +37,7 @@ export default function TableEdukasi() {
         itemArr.push({ ...doc.data(), id: doc.id });
       });
 
-      setEdukasi(itemArr);
+      setProfesional(itemArr);
     });
 
     return () => {
@@ -48,12 +46,12 @@ export default function TableEdukasi() {
   }, []);
 
   const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "edukasi", id));
-    toast.success("berhasil menghapus data artikel");
+    await deleteDoc(doc(db, "profesional", id));
+    toast.success("berhasil menghapus data!");
   };
 
-  return edukasi ? (
-    <Table striped>
+  return profesional ? (
+    <Table striped className="overflow-auto">
       <Table.Head>
         {cols.map((col) => (
           <Table.HeadCell>{col}</Table.HeadCell>
@@ -63,19 +61,20 @@ export default function TableEdukasi() {
         </Table.HeadCell>
       </Table.Head>
       <Table.Body className="divide-y">
-        {edukasi.map((row, i) => (
+        {profesional.map((row, i) => (
           <Table.Row
             key={row.id}
             className="bg-white dark:border-gray-700 dark:bg-gray-800"
           >
-            <Table.Cell>{i + 1}</Table.Cell>
-            <Table.Cell>{row.title}</Table.Cell>
+            <Table.Cell>{row.name}</Table.Cell>
             <Table.Cell>
-              <Image src={row.image} alt={row.title} width={100} height={100} />
+              <Image src={row.img} alt={row.name} width={100} height={100} />
             </Table.Cell>
-            <Table.Cell>{row.deskripsi.slice(0, 55)}...</Table.Cell>
+            <Table.Cell>{row.desc.slice(0, 55)}...</Table.Cell>
+            <Table.Cell>{row.placeWork}</Table.Cell>
+            <Table.Cell>{row.educations}</Table.Cell>
+            <Table.Cell>{row.STR}</Table.Cell>
             <Table.Cell className="grid gap-2">
-              <MSEdukasi data={row} />
               <Button
                 className="flex gap-2 items-center bg-red-500"
                 onClick={() => handleDelete(row.id)}

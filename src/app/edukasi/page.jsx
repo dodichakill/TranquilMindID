@@ -98,7 +98,7 @@ const Edukasi = () => {
           </>
         ) : (
           <>
-            <div className="loading">Loading data...</div>
+            <Spinner size={"xl"} />
           </>
         )}
       </div>
