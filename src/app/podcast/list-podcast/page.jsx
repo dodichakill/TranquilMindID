@@ -6,17 +6,17 @@ import Image from "next/image";
 import ItemPodcast from "@components/ItemPodcast";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Link from "next/link";
-import { client } from "@api";
+import { client } from "@services";
 
 export default function ListPodcast() {
   const clientPodcast = client;
   const [dataListPodcast, setDataListPodcast] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isAudioTitle, setIsAudioTitle] = useState("");
+  const [audioTitle, setAudioTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
   const handleIsPlayed = (title, image) => {
-    setIsAudioTitle(title);
+    setAudioTitle(title);
     setImageUrl(image);
   };
 
@@ -41,7 +41,7 @@ export default function ListPodcast() {
         })
         .then((response) => {
           setDataListPodcast(response.data.results);
-          // setLoading(false);
+          setLoading(false);
         })
         .catch((error) => {
           console.log(error);
@@ -75,7 +75,7 @@ export default function ListPodcast() {
             <div className='desc-box flex flex-col justify-center items-center'>
               <div className='px-8 sm:px-0 lg:px-8 my-3 title-podcast self-start'>
                 <h1 className='font-semibold text-xl w-[230px]'>
-                  {isAudioTitle ? isAudioTitle : "Dengarkan Podcast"}
+                  {audioTitle ? audioTitle : "Dengarkan Podcast"}
                 </h1>
               </div>
               <div className='my-3 about-podcast self-start pl-8 sm:pl-0 lg:pl-8'>
@@ -92,7 +92,7 @@ export default function ListPodcast() {
         {!loading ? (
           <>
             <div
-              className={`podcast-list grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 place-items-center lg:mt-16 mt-6 lg:translate-x-0 translate-x-6 sm:translate-x-2`}
+              className={`podcast-list grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 lg:gap-5 place-items-center lg:mt-16 mt-6 lg:translate-x-0 translate-x-6 sm:translate-x-2`}
             >
               {dataListPodcast.map((pod) => (
                 <>
