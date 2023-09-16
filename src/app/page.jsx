@@ -37,9 +37,10 @@ export default function Home() {
 
   return (
     <>
-      <NavigationBar active="beranda" />
+      <NavigationBar active='beranda' />
 
       <Headline />
+
       <Features />
 
       <Podcasts />
@@ -51,6 +52,7 @@ export default function Home() {
       <Reviews />
 
       <FooterSection />
+      
       <ButtonBackTop />
     </>
   );

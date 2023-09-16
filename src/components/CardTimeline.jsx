@@ -42,8 +42,8 @@ const CardTimeline = ({
           Baca Selengkapnya
         </button>
         <p className='mb-4 text-xs mt-2 font-normal text-primary'>
-          *Perhatian: Langkah ini akan otomatis terverifikasi <br /> oleh sistem
-          saat 7 hari berjalan
+          *Perhatian: Langkah ini harus diselesaikan secara berurutan <br /> dan
+          harus tetap berada di halaman ini
         </p>
         {readMore && (
           <>

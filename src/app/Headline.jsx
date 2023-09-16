@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -18,17 +17,11 @@ export default function Headline() {
           profesional. Transformasi menuju ketenangan batinmu dimulai di sini.
         </p>
         <div className='flex gap-4 z-0'>
-          <button
-            onClick={() => {
-              window.scrollTo({
-                top: 600,
-                behavior: "smooth",
-              });
-            }}
+          <a href="#features"
             className='btn bg-primary text-white'
           >
             Mulai Sekarang{" "}
-          </button>
+          </a>
           <Link
             href='/tentang'
             className='btn bg-white hover:bg-primary text-sm font-light text-primary hover:text-white flex items-center'

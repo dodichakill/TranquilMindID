@@ -4,8 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth 1s;
+html,
+* {
+  scroll-behavior: smooth !important;
 }
 
 body {

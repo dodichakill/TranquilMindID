@@ -9,7 +9,7 @@ export default function Features() {
   const router = useRouter();
 
   return (
-    <div className='w-full box-border bg-primary pt-16 md:pt-28 mb-20 md:mb-40 flex flex-col justify-center'>
+    <div id="features" className='w-full box-border bg-primary pt-16 md:pt-28 mb-20 md:mb-40 flex flex-col justify-center'>
       <div className='w-full max-w-[45em] flex flex-col pb-48 m-auto justify-center'>
         <h1 className='heading text-white text-center'>
           Mulai tes yuk! Biar tau kamu terkena gangguan apa

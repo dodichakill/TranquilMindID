@@ -1,6 +1,4 @@
 import "@/styles/globals.css";
-import ButtonBackTop from "@components/ButtonBackTop";
-import FooterSection from "@components/FooterSection";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
