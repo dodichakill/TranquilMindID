@@ -163,8 +163,8 @@ const Linimasa = async () => {
   const handleChoice = (params, score) => {
     params && setCountQuestion((count) => (count += 1));
     setTotalScore((scores) => (scores += score));
-    if (countQuestion >= 9) {
-      localStorage.setItem("resultTest", JSON.stringify(resultTest));
+    if (typeof window !== "undefined" && countQuestion >= 9) {
+      window.localStorage.setItem("resultTest", JSON.stringify(resultTest));
       setIsDone(true);
     }
   };

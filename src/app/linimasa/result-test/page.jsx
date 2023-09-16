@@ -14,21 +14,18 @@ import { BiPodcast } from "react-icons/bi";
 import { Tooltip } from "flowbite-react";
 
 const ResultTest = () => {
-  const [dataResult, setDataResult] = useState(
-    JSON.parse(localStorage.getItem("resultTest"))
-  );
+  const [dataResult, setDataResult] = useState({});
   const [nextStep, setNextStep] = useState(false);
   const [popUpYes, setPopUpYes] = useState(false);
   const [popUpNo, setPopUpNo] = useState(false);
   const [checkedCount, setCheckedCount] = useState(1);
-
   const checkedHandler = () => {
-    setCheckedCount((c) => c += 1);
+    setCheckedCount((c) => (c += 1));
     return true;
   };
 
   useEffect(() => {
-    setDataResult(JSON.parse(localStorage.getItem("resultTest")));
+    setDataResult(JSON.parse(window.localStorage.getItem("resultTest")));
   }, []);
 
   return (
@@ -165,7 +162,11 @@ const ResultTest = () => {
                         Kamu telah menyelesaikan semua tahap
                       </h2>
                     </div>
-                    <Tooltip placement="bottom" content="Selesaikan semua langkah" className="translate-x-[5.5rem] sm:translate-x-[10rem] text-xs">
+                    <Tooltip
+                      placement='bottom'
+                      content='Selesaikan semua langkah'
+                      className='translate-x-[5.5rem] sm:translate-x-[10rem] text-xs'
+                    >
                       <button
                         className='font-medium text-xs sm:text-sm bg-primary text-white px-3 py-[0.35rem] rounded-2xl shadow-xl translate-x-[5.5rem] sm:translate-x-[10rem]'
                         onClick={() => {

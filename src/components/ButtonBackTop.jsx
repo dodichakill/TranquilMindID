@@ -7,15 +7,17 @@ export default function ButtonBackTop() {
   const [isBackTop, setIsBackTop] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      window.scrollY > 25 ? setIsBackTop(true) : setIsBackTop(false);
-    };
+    if (typeof window !== "undefined") {
+      const handleScroll = () => {
+        window.scrollY > 25 ? setIsBackTop(true) : setIsBackTop(false);
+      };
 
-    window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, []);
 
   return (
