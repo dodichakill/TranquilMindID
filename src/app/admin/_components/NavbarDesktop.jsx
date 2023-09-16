@@ -27,7 +27,7 @@ export default function NavbarDesktop({ titlePage }) {
           <li className="mb-3">
             {titlePage === "beranda" ? (
               <Link
-                href="/admin"
+                href="/"
                 className="text-white hover:bg-slate-100/50 btn font-bold bg-slate-200/30 flex items-center"
               >
                 <AiOutlineHome />
