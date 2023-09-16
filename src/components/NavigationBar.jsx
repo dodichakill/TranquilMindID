@@ -50,7 +50,7 @@ const NavigationBar = ({ active, user }) => {
 
   const handleDropdownChange = (newMusic) => {
     setMusic(newMusic);
-    handlePlayAudio();
+    setIsMusicPlay(false);
   };
 
   const handlePlayAudio = () => {

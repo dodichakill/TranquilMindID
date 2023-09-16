@@ -7,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { client } from "@services";
+import FooterSection from "@components/FooterSection";
+import ButtonBackTop from "@components/ButtonBackTop";
 
 const Podcast = () => {
   const [resultDataListenAPI, setResultDataListenAPI] = useState([]);
@@ -180,6 +182,8 @@ const Podcast = () => {
           </>
         )}
       </div>
+      <FooterSection />
+      <ButtonBackTop />
     </>
   );
 };
