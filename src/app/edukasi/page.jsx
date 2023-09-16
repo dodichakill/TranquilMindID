@@ -15,21 +15,21 @@ const dataBannerCarousel = [
     title: "Depresi",
     desc: "Depresi adalah gangguan suasana hati yang menyebabkan penderitanya terus-menerus merasa sedih. Perasaan sedih pada depresi bisa berlangsung hingga berminggu-minggu atau berbulan-bulan.",
     image: "/assets/Homepage/depresi.png",
-    link: "/edukasi/depresi",
+    link: "/edukasi/W0Z1McBsfWE1PqNXibmy",
   },
   {
     id: 2,
     title: "Kecemasan",
     desc: "Kecemasan merupakan perasaan khawatir atau takut  berlebihan terhadap suatu keadaan atau objek tertentu. Penyebab kecemasan tidak dapat ditentukan sendiri karena sangat kompleks.",
     image: "/assets/Homepage/anxiety.png",
-    link: "/edukasi/kecemasan",
+    link: "/edukasi/sSnG49zAbb5FzmIF2V5W",
   },
   {
     id: 3,
     title: "Skizofrenia",
     desc: "Skizofrenia adalah gangguan mental berat yang dapat memengaruhi tingkah laku, emosi, dan komunikasi. Penderita skizofrenia bisa mengalami halusinasi, delusi, kekacauan berpikir, dan perubahan perilaku.",
     image: "/assets/Homepage/skizo.png",
-    link: "/edukasi/skizofrenia",
+    link: "/edukasi/g5mQT239RpU24UVhY6EG",
   },
 ];
 
