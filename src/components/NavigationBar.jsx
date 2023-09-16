@@ -48,6 +48,11 @@ const NavigationBar = ({ active, user }) => {
     };
   }, [music]);
 
+  const handleDropdownChange = (newMusic) => {
+    setMusic(newMusic);
+    handlePlayAudio();
+  };
+
   const handlePlayAudio = () => {
     audioRef.current.play();
     setIsMusicPlay(true);
@@ -198,7 +203,7 @@ const NavigationBar = ({ active, user }) => {
                     <Dropdown label='Pilih Latar Musik'>
                       <Dropdown.Item
                         onClick={() =>
-                          setMusic({
+                          handleDropdownChange({
                             name: "Forest",
                             audio: "/assets/Audio/forest-lullaby.mp3",
                           })
@@ -208,7 +213,7 @@ const NavigationBar = ({ active, user }) => {
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() =>
-                          setMusic({
+                          handleDropdownChange({
                             name: "Relaxing",
                             audio: "assets/Audio/relaxing.mp3",
                           })
@@ -218,7 +223,7 @@ const NavigationBar = ({ active, user }) => {
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() =>
-                          setMusic({
+                          handleDropdownChange({
                             name: "Rain",
                             audio: "/assets/Audio/sleepy-rain.mp3",
                           })
