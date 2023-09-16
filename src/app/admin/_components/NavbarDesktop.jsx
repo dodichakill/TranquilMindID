@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiSolidDashboard } from "react-icons/bi";
@@ -7,6 +8,13 @@ import { FaRightFromBracket } from "react-icons/fa6";
 const navLogo = "/assets/Logo/logo-footer.png";
 
 export default function NavbarDesktop({ titlePage }) {
+  const router = useRouter();
+  const handleLogout = () => {
+    if (typeof window !== "undefined") {
+      router.push("/login");
+      localStorage.removeItem("isAdminLoggedIn");
+    }
+  };
   return (
     <div className="hidden nav-left w-72 bg-blue-600 h-full sm:block sticky top-0">
       <Image
@@ -44,16 +52,13 @@ export default function NavbarDesktop({ titlePage }) {
             )}
           </li>
           <li>
-            <Link
-              Link
-              href={"admin-logout"}
-              method="post"
-              as="button"
-              className="bg-red-500/50 hover:bg-red-500 rounded-lg text-white  btn font-semibold shadow flex items-center"
+            <button
+              onClick={handleLogout}
+              className="bg-red-500/50 hover:bg-red-500 rounded-lg text-white  btn font-semibold shadow flex items-center w-full"
             >
               <FaRightFromBracket />
               <span className="ml-2 capitalize">Logout</span>
-            </Link>
+            </button>
           </li>
         </ul>
       </div>
