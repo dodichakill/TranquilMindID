@@ -10,6 +10,8 @@ import NavigationBar from "@components/NavigationBar";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { AiFillWarning } from "react-icons/ai";
 import { Alert } from "flowbite-react";
+import ButtonBackTop from "@components/ButtonBackTop";
+import FooterSection from "@components/FooterSection";
 
 export default function LoginComponent() {
   const [eyeClose, setEyeClose] = useState(true);
@@ -135,6 +137,8 @@ export default function LoginComponent() {
         <div className="bubbles lg:visible invisible absolute -right-10 -bottom-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full"></div>
         <div className="bubbles lg:invisible visible absolute -left-10 -bottom-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full"></div>
       </div>
+      <FooterSection />
+      <ButtonBackTop />
     </>
   );
 }

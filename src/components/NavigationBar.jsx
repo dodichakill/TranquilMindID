@@ -14,6 +14,7 @@ import {
   BsFillInfoCircleFill,
 } from "react-icons/bs";
 import { Dropdown } from "flowbite-react";
+import { TbReportAnalytics } from "react-icons/tb";
 
 const NavigationBar = ({ active, user }) => {
   const [pathname, setPathname] = React.useState("");
@@ -22,7 +23,6 @@ const NavigationBar = ({ active, user }) => {
   const [isProfileClick, setIsProfileClick] = React.useState(false);
 
   useEffect(() => {
-    console.log(user);
     const nowPathname = window.location.pathname;
     if (nowPathname === "/login" || nowPathname === "/register") {
       setPathname(nowPathname);
@@ -187,6 +187,10 @@ const NavigationBar = ({ active, user }) => {
                     <hr />
                   </div>
                   <div className="p-5 flex flex-col gap-4">
+                    <Link href="/linimasa/result-test">
+                      <TbReportAnalytics className="h-5 inline w-5 mr-2" />{" "}
+                      Hasil Tes
+                    </Link>
                     <Link href="/tentangkami">
                       <BsFillInfoCircleFill className="h-5 inline w-5 mr-2" />{" "}
                       Tentang Kami
