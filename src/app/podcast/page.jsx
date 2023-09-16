@@ -6,7 +6,7 @@ import NavigationBar from "@components/NavigationBar";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { client } from "@api";
+import { client } from "@services";
 
 const Podcast = () => {
   const [resultDataListenAPI, setResultDataListenAPI] = useState([]);
@@ -72,12 +72,13 @@ const Podcast = () => {
         <div className='wrapper-homepage container flex justify-center items-center flex-col-reverse lg:flex-row lg: gap-5'>
           <div className='content-hero'>
             <h1 className='text-2xl sm:text-3xl lg:text-5xl font-medium mb-3'>
-              Dengerin podcast untuk <br /> temani harimu di <br />{" "}
-              TranquilMind.id
+              Dengerin podcast untuk <br /> temani harimu di{" "}
+              <br className='hidden lg:block' />{" "}
+              <span className='text-primary'>TranquilMind.id</span>
             </h1>
             <p className='text-xs sm:text-lg'>
               Jangan biarkan waktu luang Anda terbuang sia-sia, dengarkan
-              podcast kami <br className='hidden sm:inline-block' /> dan temukan
+              podcast <br className='hidden sm:inline-block' /> dan temukan
               hiburan dan wawasan yang tepat untuk Anda!
             </p>
           </div>
@@ -124,7 +125,10 @@ const Podcast = () => {
                 <>
                   {resultDataListenAPI.slice(0, 4).map((pod) => (
                     <>
-                      <ItemPodcast podcast={pod} key={pod.id} />
+                      <ItemPodcast
+                        podcast={pod}
+                        key={pod.id}
+                      />
                     </>
                   ))}
                 </>
