@@ -2,25 +2,20 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
-import { useSearchParams } from "next/navigation";
 import NavigationBar from "@components/NavigationBar";
-import { BsFillInfoCircleFill } from "react-icons/bs";
-import { AiFillWarning } from "react-icons/ai";
-import { Alert } from "flowbite-react";
 import ButtonBackTop from "@components/ButtonBackTop";
 import FooterSection from "@components/FooterSection";
+import { initFirebase } from "@app/firebase";
 
 export default function LoginComponent() {
   const [eyeClose, setEyeClose] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const searchParams = useSearchParams();
-  const message = searchParams.get("message");
-  const error = searchParams.get("error");
+  // const app = initFirebase()
+  // console.log(app);
 
   return (
     <>
@@ -105,32 +100,6 @@ export default function LoginComponent() {
             >
               Masuk
             </button>
-
-            {error && (
-              <Alert className="w-full" color="failure" icon={AiFillWarning}>
-                <span>
-                  <p>{String(error)}</p>
-                </span>
-              </Alert>
-            )}
-            {message && (
-              <Alert
-                className="w-full"
-                color="info"
-                icon={BsFillInfoCircleFill}
-              >
-                <span>
-                  <p>{String(message)}</p>
-                </span>
-              </Alert>
-            )}
-
-            <h3 className="self-start lg:text-base text-sm">
-              Belum punya akun?{" "}
-              <Link href="/register" className="text-primary">
-                Buat akun
-              </Link>
-            </h3>
           </form>
         </div>
         <div className="bubbles absolute -right-10 -top-10 w-24 h-24 bg-gradient-to-b from-[#128EF0] to-[#D9D9D9] rounded-full"></div>
