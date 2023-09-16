@@ -12,9 +12,11 @@ import {
   BsFillPlayCircleFill,
   BsFillPauseCircleFill,
   BsFillInfoCircleFill,
+  BsFillGearFill,
 } from "react-icons/bs";
 import { Dropdown } from "flowbite-react";
 import { TbReportAnalytics } from "react-icons/tb";
+import { IoMdHeadset } from "react-icons/io";
 
 const NavigationBar = ({ active, user }) => {
   const [pathname, setPathname] = React.useState("");
@@ -28,8 +30,6 @@ const NavigationBar = ({ active, user }) => {
       setPathname(nowPathname);
     }
   }, []);
-
-  const userAuth = user || null;
 
   return (
     <React.Fragment>
@@ -120,113 +120,92 @@ const NavigationBar = ({ active, user }) => {
             Podcast
           </Link>
         </div>
-        {userAuth ? (
-          <div className={`profile  ${isProfileClick ? "relative" : ""}`}>
-            {isProfileClick ? (
-              <>
-                <div
-                  className={`card rounded-xl shadow-lg  bg-primary text-white absolute -right-5 -top-5`}
-                >
-                  <div className="p-5 flex items-center gap-2">
-                    <div className="flex-1">
-                      <p>{userAuth.email}</p>
-                    </div>
-                    <div className="flex-1">
-                      <BiUserCircle
-                        className="text-xl h-10 w-10 cursor-pointer"
-                        onClick={() => setIsProfileClick(!isProfileClick)}
-                      />
-                    </div>
+        <div className={`profile  ${isProfileClick ? "relative" : ""}`}>
+          {isProfileClick ? (
+            <>
+              <div
+                className={`card rounded-xl shadow-lg  w-[15rem] bg-primary text-white absolute -right-5 -top-5`}
+              >
+                <div className="p-5 flex items-center gap-2">
+                  <div className="flex-1">
+                    <p>Tenangkan Pikiran</p>
                   </div>
-                  <div className="w-full">
-                    <hr />
-                    <div className="p-5 gap-2 flex flex-col overflow-auto w-full">
-                      <div className="w-full h-20 relative rounded-xl  p-2">
-                        <Image
-                          src="https://images.pexels.com/photos/2085998/pexels-photo-2085998.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                          width={80}
-                          height={160}
-                          className="w-full h-full object-cover rounded-xl flex-1 shrink-0"
-                        />
-                        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-b h-full rounded-xl from-[#01086654] to-[#01010e54] p-5 flex items-center justify-between">
-                          <p className="text-xl">{music.name}</p>
-                          {isMusicPlay ? (
-                            <BsFillPauseCircleFill
-                              className="h-10 w-10 cursor-pointer"
-                              onClick={() => setIsMusicPlay(!isMusicPlay)}
-                            />
-                          ) : (
-                            <BsFillPlayCircleFill
-                              className="h-10 w-10 cursor-pointer"
-                              onClick={() => setIsMusicPlay(!isMusicPlay)}
-                            />
-                          )}
-                        </div>
-                      </div>
-                      <Dropdown label="Pilih Latar Musik">
-                        <Dropdown.Item
-                          onClick={() => setMusic({ name: "Hutan", audio: "" })}
-                        >
-                          Hutan
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          onClick={() =>
-                            setMusic({ name: "Air Terjun", audio: "" })
-                          }
-                        >
-                          Air Terjun
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          onClick={() => setMusic({ name: "Hujan", audio: "" })}
-                        >
-                          Hujan
-                        </Dropdown.Item>
-                      </Dropdown>
-                    </div>
-
-                    <hr />
-                  </div>
-                  <div className="p-5 flex flex-col gap-4">
-                    <Link href="/linimasa/result-test">
-                      <TbReportAnalytics className="h-5 inline w-5 mr-2" />{" "}
-                      Hasil Tes
-                    </Link>
-                    <Link href="/tentangkami">
-                      <BsFillInfoCircleFill className="h-5 inline w-5 mr-2" />{" "}
-                      Tentang Kami
-                    </Link>
-                    <form
-                      action="/auth/sign-out"
-                      method="post"
-                      className="cursor-pointer"
-                    >
-                      <button type="submit">
-                        <BiExit className="h-5 inline w-5 mr-2" /> Keluar Akun
-                      </button>
-                    </form>
+                  <div className="">
+                    <IoMdHeadset
+                      className="text-xl h-10 w-10 cursor-pointer shadow-lg"
+                      onClick={() => setIsProfileClick(!isProfileClick)}
+                    />
                   </div>
                 </div>
-                <BiUserCircle
-                  className="rounded-full p-[0.2rem] ring-2 ring-gray-300 h-10 w-10"
-                  onClick={() => setIsProfileClick(!isProfileClick)}
-                />
-              </>
-            ) : (
+                <div className="w-full">
+                  <hr />
+                  <div className="p-5 gap-2 flex flex-col overflow-auto w-full">
+                    <div className="w-full h-20 relative rounded-xl  p-2">
+                      <Image
+                        src="https://images.pexels.com/photos/2085998/pexels-photo-2085998.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                        width={80}
+                        height={160}
+                        className="w-full h-full object-cover rounded-xl flex-1 shrink-0"
+                      />
+                      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-b h-full rounded-xl from-[#01086654] to-[#01010e54] p-5 flex items-center justify-between">
+                        <p className="text-xl">{music.name}</p>
+                        {isMusicPlay ? (
+                          <BsFillPauseCircleFill
+                            className="h-10 w-10 cursor-pointer"
+                            onClick={() => setIsMusicPlay(!isMusicPlay)}
+                          />
+                        ) : (
+                          <BsFillPlayCircleFill
+                            className="h-10 w-10 cursor-pointer"
+                            onClick={() => setIsMusicPlay(!isMusicPlay)}
+                          />
+                        )}
+                      </div>
+                    </div>
+                    <Dropdown label="Pilih Latar Musik">
+                      <Dropdown.Item
+                        onClick={() => setMusic({ name: "Hutan", audio: "" })}
+                      >
+                        Hutan
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() =>
+                          setMusic({ name: "Air Terjun", audio: "" })
+                        }
+                      >
+                        Air Terjun
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => setMusic({ name: "Hujan", audio: "" })}
+                      >
+                        Hujan
+                      </Dropdown.Item>
+                    </Dropdown>
+                  </div>
+
+                  <hr />
+                </div>
+                <div className="p-5 flex flex-col gap-4">
+                  <Link href="/tentangkami">
+                    <BsFillInfoCircleFill className="h-5 inline w-5 mr-2" />{" "}
+                    Tentang Kami
+                  </Link>
+                </div>
+              </div>
               <BiUserCircle
-                className="rounded-full p-[0.2rem] cursor-pointer ring-2 ring-gray-300 h-10 w-10"
-                width={40}
-                height={40}
+                className="rounded-full p-[0.2rem] ring-2 ring-gray-300 h-10 w-10"
                 onClick={() => setIsProfileClick(!isProfileClick)}
               />
-            )}
-          </div>
-        ) : pathname === "/login" || pathname === "/register" ? (
-          <p style={{ visibility: "hidden" }}>oke</p>
-        ) : (
-          <Link href="/login" className="btn bg-black text-white">
-            Masuk / Daftar
-          </Link>
-        )}
+            </>
+          ) : (
+            <IoMdHeadset
+              className="rounded-full p-[0.2rem] cursor-pointer ring-2 ring-gray-300 h-10 w-10 text-primary"
+              width={40}
+              height={40}
+              onClick={() => setIsProfileClick(!isProfileClick)}
+            />
+          )}
+        </div>
       </div>
 
       {/* Mobile Version */}
