@@ -11,6 +11,7 @@ import MFAddProfesional from "./_components/MFAddProfesional";
 import TableProfesional from "./_components/TableProfesional";
 import { useRouter } from "next/navigation";
 
+
 const MainContent = () => {
   return (
     <Accordion>
@@ -48,6 +49,7 @@ export default function Dashboard() {
       }
     }
   });
+
   return (
     <>
       <NavbarMobile />

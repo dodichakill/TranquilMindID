@@ -19,6 +19,7 @@ export default function LoginComponent() {
   const [eyeClose, setEyeClose] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const router = useRouter();
 
   const handleSubmit = (e) => {

@@ -59,6 +59,7 @@ export default function NavbarDesktop({ titlePage }) {
               <FaRightFromBracket />
               <span className="ml-2 capitalize">Logout</span>
             </button>
+
           </li>
         </ul>
       </div>
