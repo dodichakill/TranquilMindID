@@ -9,7 +9,7 @@ export default function Headline() {
         objectFit: "cover",
       }}
     >
-      <div className="px-10 bg-white/50 backdrop-blur-lg text-center py-20 ">
+      <div className="px-10 bg-white/50 backdrop-blur-lg text-center py-20 z-0">
         <h1 className="heading">Sebuah Perjalanan</h1>
         <p className="desc">
           Kenalan lebih dekat dengan sejarah TranquilMind.id dan orang-orang

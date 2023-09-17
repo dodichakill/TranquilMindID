@@ -1,5 +1,3 @@
-// "use client";
-
 import CarouselBanner from "@components/CarouselBanner";
 import Headline from "./Headline";
 import Features from "./Features";

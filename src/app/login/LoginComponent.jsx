@@ -7,15 +7,33 @@ import { FaEye } from "react-icons/fa";
 import NavigationBar from "@components/NavigationBar";
 import ButtonBackTop from "@components/ButtonBackTop";
 import FooterSection from "@components/FooterSection";
-import { initFirebase } from "@app/firebase";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+
+const credentialDummy = {
+  email: "admin321@gmail.com",
+  password: "4dm1n321",
+};
 
 export default function LoginComponent() {
   const [eyeClose, setEyeClose] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const app = initFirebase()
-  // console.log(app);
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    if (
+      email === credentialDummy.email &&
+      password === credentialDummy.password
+    ) {
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("isAdminLoggedIn", true);
+        router.push("/admin");
+      }
+    }
+    toast.error("Email atau password salah!");
+  };
 
   return (
     <>
@@ -41,8 +59,7 @@ export default function LoginComponent() {
             <h1 className="text-lg font-medium">Sembuh Bersama TranquilMind</h1>
           </div>
           <form
-            action="/auth/sign-in"
-            method="post"
+            onSubmit={handleSubmit}
             className="flex flex-col justify-center items-center gap-4 w-[19.5rem]"
           >
             <div className="email-field">

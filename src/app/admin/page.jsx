@@ -1,6 +1,6 @@
 "use client";
 import { Accordion } from "flowbite-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MFAddEdukasi from "./_components/MFAddEdukasi";
@@ -9,6 +9,8 @@ import NavbarDesktop from "./_components/NavbarDesktop";
 import TableEdukasi from "./_components/TableEdukasi";
 import MFAddProfesional from "./_components/MFAddProfesional";
 import TableProfesional from "./_components/TableProfesional";
+import { useRouter } from "next/navigation";
+
 
 const MainContent = () => {
   return (
@@ -37,6 +39,17 @@ const MainContent = () => {
 };
 
 export default function Dashboard() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isLogin = window.localStorage.getItem("isAdminLoggedIn");
+      if (!isLogin) {
+        router.push("/login");
+      }
+    }
+  });
+
   return (
     <>
       <NavbarMobile />

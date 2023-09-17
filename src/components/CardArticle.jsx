@@ -32,7 +32,7 @@ const CardArticle = ({
             <p className="text-xs sm:text-base">
               {shortDesc}...{" "}
               <Link
-                href={`/edukasi/${linkArticle.toLowerCase()}`}
+                href={`/edukasi/${idArticle}`}
                 className="text-primary text-xs sm:text-base cursor-pointer"
               >
                 lanjut baca
