@@ -66,18 +66,18 @@ const NavigationBar = ({ active, user }) => {
   return (
     <React.Fragment>
       {/* Desktop and Tablet Version */}
-      <div className='flex justify-between items-center pr-5 py-1 sm:px-3 sm:py-2 sm:pr-12 lg:fixed top-0 left-0 w-full lg:bg-white/80 lg:backdrop-blur-md z-50'>
-        <Link href='/' className='navbar-brand'>
+      <div className="flex justify-between items-center pr-5 py-1 sm:px-3 sm:py-2 sm:pr-12 lg:fixed top-0 left-0 w-full lg:bg-white/80 lg:backdrop-blur-md z-50">
+        <Link href="/" className="navbar-brand">
           <Image
-            src='/assets/Logo/logo.png'
+            src="/assets/Logo/logo.png"
             width={200}
             height={200}
-            alt='logo-tranquilmind.id'
+            alt="logo-tranquilmind.id"
           />
         </Link>
-        <div className='navbar-link hidden lg:flex justify-center items-center gap-4 text-primary'>
+        <div className="navbar-link hidden lg:flex justify-center items-center gap-4 text-primary">
           <Link
-            href='/'
+            href="/"
             className={`flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none ${
               active === "beranda" ? "text-white group bg-primary " : ""
             }`}
@@ -87,12 +87,12 @@ const NavigationBar = ({ active, user }) => {
                 active === "beranda" ? "border-white" : ""
               }`}
             >
-              <AiOutlineHome className='text-xl' />
+              <AiOutlineHome className="text-xl" />
             </div>
             Beranda
           </Link>
           <Link
-            href='/linimasa'
+            href="/linimasa"
             className={`flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none ${
               active === "linimasa" ? "text-white group bg-primary " : ""
             }`}
@@ -102,12 +102,12 @@ const NavigationBar = ({ active, user }) => {
                 active === "linimasa" ? "border-white" : ""
               }`}
             >
-              <MdTimeline className='text-xl' />
+              <MdTimeline className="text-xl" />
             </div>
             Linimasa
           </Link>
           <Link
-            href='/rekomendasi'
+            href="/rekomendasi"
             className={`flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none ${
               active === "rekomendasi" ? "text-white group bg-primary " : ""
             }`}
@@ -117,12 +117,12 @@ const NavigationBar = ({ active, user }) => {
                 active === "rekomendasi" ? "border-white" : ""
               }`}
             >
-              <GoGitBranch className='text-xl' />
+              <GoGitBranch className="text-xl" />
             </div>
             Rekomendasi
           </Link>
           <Link
-            href='/edukasi'
+            href="/edukasi"
             className={`flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none ${
               active === "edukasi" ? "text-white group bg-primary " : ""
             }`}
@@ -132,12 +132,12 @@ const NavigationBar = ({ active, user }) => {
                 active === "edukasi" ? "border-white" : ""
               }`}
             >
-              <VscBook className='text-xl' />
+              <VscBook className="text-xl" />
             </div>
             Edukasi
           </Link>
           <Link
-            href='/podcast'
+            href="/podcast"
             className={`flex justify-center items-center gap-3 transition duration-300 ease-in-out hover:text-white group hover:bg-primary focus:text-white group focus:bg-primary active:text-white group active:bg-primary rounded-full p-3 outline-none ${
               active === "podcast" ? "text-white group bg-primary " : ""
             }`}
@@ -147,43 +147,43 @@ const NavigationBar = ({ active, user }) => {
                 active === "podcast" ? "border-white" : ""
               }`}
             >
-              <BiPodcast className='text-xl' />
+              <BiPodcast className="text-xl" />
             </div>
             Podcast
           </Link>
         </div>
-        <div className={`profile  ${isProfileClick ? "relative" : ""}`}>
+        <div className={`profile  ${isProfileClick ? "relative z-50" : ""}`}>
           {isProfileClick ? (
             <>
               <div
                 className={`card rounded-xl shadow-lg  w-[15rem] bg-primary text-white absolute -right-5 -top-5`}
               >
-                <div className='p-5 flex items-center gap-2'>
-                  <div className='flex-1'>
+                <div className="p-5 flex items-center gap-2">
+                  <div className="flex-1">
                     <p>Tenangkan Pikiran</p>
                   </div>
-                  <div className=''>
+                  <div className="">
                     <IoMdHeadset
-                      className='text-xl h-10 w-10 cursor-pointer shadow-lg'
+                      className="text-xl h-10 w-10 cursor-pointer shadow-lg"
                       onClick={() => setIsProfileClick(!isProfileClick)}
                     />
                   </div>
                 </div>
-                <div className='w-full'>
+                <div className="w-full">
                   <hr />
-                  <div className='p-5 gap-2 flex flex-col overflow-auto w-full'>
-                    <div className='w-full h-20 relative rounded-xl  p-2'>
+                  <div className="p-5 gap-2 flex flex-col overflow-auto w-full">
+                    <div className="w-full h-20 relative rounded-xl  p-2">
                       <Image
-                        src='https://images.pexels.com/photos/2085998/pexels-photo-2085998.jpeg?auto=compress&cs=tinysrgb&w=1600'
+                        src="https://images.pexels.com/photos/2085998/pexels-photo-2085998.jpeg?auto=compress&cs=tinysrgb&w=1600"
                         width={80}
                         height={160}
-                        className='w-full h-full object-cover rounded-xl flex-1 shrink-0'
+                        className="w-full h-full object-cover rounded-xl flex-1 shrink-0"
                       />
-                      <div className='absolute bottom-0 left-0 w-full bg-gradient-to-b h-full rounded-xl from-[#01086654] to-[#01010e54] p-5 flex items-center justify-between'>
-                        <p className='text-xl'>{music.name}</p>
+                      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-b h-full rounded-xl from-[#01086654] to-[#01010e54] p-5 flex items-center justify-between">
+                        <p className="text-xl">{music.name}</p>
                         {isMusicPlay ? (
                           <BsFillPauseCircleFill
-                            className='h-10 w-10 cursor-pointer'
+                            className="h-10 w-10 cursor-pointer"
                             onClick={() => {
                               setIsMusicPlay(!isMusicPlay);
                               handlePauseAudio();
@@ -191,7 +191,7 @@ const NavigationBar = ({ active, user }) => {
                           />
                         ) : (
                           <BsFillPlayCircleFill
-                            className='h-10 w-10 cursor-pointer'
+                            className="h-10 w-10 cursor-pointer"
                             onClick={() => {
                               setIsMusicPlay(!isMusicPlay);
                               handlePlayAudio();
@@ -200,7 +200,7 @@ const NavigationBar = ({ active, user }) => {
                         )}
                       </div>
                     </div>
-                    <Dropdown label='Pilih Latar Musik'>
+                    <Dropdown label="Pilih Latar Musik">
                       <Dropdown.Item
                         onClick={() =>
                           handleDropdownChange({
@@ -236,21 +236,21 @@ const NavigationBar = ({ active, user }) => {
 
                   <hr />
                 </div>
-                <div className='p-5 flex flex-col gap-4'>
-                  <Link href='/tentang'>
-                    <BsFillInfoCircleFill className='h-5 inline w-5 mr-2' />{" "}
+                <div className="p-5 flex flex-col gap-4">
+                  <Link href="/tentang">
+                    <BsFillInfoCircleFill className="h-5 inline w-5 mr-2" />{" "}
                     Tentang Kami
                   </Link>
                 </div>
               </div>
               <BiUserCircle
-                className='rounded-full p-[0.2rem] ring-2 ring-gray-300 h-10 w-10'
+                className="rounded-full p-[0.2rem] ring-2 ring-gray-300 h-10 w-10"
                 onClick={() => setIsProfileClick(!isProfileClick)}
               />
             </>
           ) : (
             <IoMdHeadset
-              className='rounded-full p-[0.2rem] cursor-pointer ring-2 ring-gray-300 h-10 w-10 text-primary'
+              className="rounded-full p-[0.2rem] cursor-pointer ring-2 ring-gray-300 h-10 w-10 text-primary"
               width={40}
               height={40}
               onClick={() => setIsProfileClick(!isProfileClick)}
@@ -260,50 +260,50 @@ const NavigationBar = ({ active, user }) => {
       </div>
 
       {/* Mobile Version */}
-      <div className='visible lg:invisible fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 text-primary'>
-        <div className='grid h-full max-w-lg gap-0 sm:gap-8 grid-cols-5 mx-auto font-medium'>
+      <div className="visible lg:invisible fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 text-primary">
+        <div className="grid h-full max-w-lg gap-0 sm:gap-8 grid-cols-5 mx-auto font-medium">
           <Link
-            href='/'
-            className='inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group'
+            href="/"
+            className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group"
           >
-            <AiOutlineHome className='text-2xl sm:text-3xl' />
-            <span className='text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500'>
+            <AiOutlineHome className="text-2xl sm:text-3xl" />
+            <span className="text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500">
               Beranda
             </span>
           </Link>
           <Link
-            href='/linimasa'
-            className='inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group'
+            href="/linimasa"
+            className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group"
           >
-            <MdTimeline className='text-2xl sm:text-3xl' />
-            <span className='text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500'>
+            <MdTimeline className="text-2xl sm:text-3xl" />
+            <span className="text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500">
               Linimasa
             </span>
           </Link>
           <Link
-            href='/rekomendasi'
-            className='inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group'
+            href="/rekomendasi"
+            className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group"
           >
-            <GoGitBranch className='text-2xl sm:text-3xl' />
-            <span className='text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500'>
+            <GoGitBranch className="text-2xl sm:text-3xl" />
+            <span className="text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500">
               Rekomendasi
             </span>
           </Link>
           <Link
-            href='/edukasi'
-            className='inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group'
+            href="/edukasi"
+            className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group"
           >
-            <VscBook className='text-2xl sm:text-3xl' />
-            <span className='text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500'>
+            <VscBook className="text-2xl sm:text-3xl" />
+            <span className="text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500">
               Edukasi
             </span>
           </Link>
           <Link
-            href='/podcast'
-            className='inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group'
+            href="/podcast"
+            className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group"
           >
-            <BiPodcast className='text-2xl sm:text-3xl' />
-            <span className='text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500'>
+            <BiPodcast className="text-2xl sm:text-3xl" />
+            <span className="text-[10px] sm:text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500">
               Podcast
             </span>
           </Link>
