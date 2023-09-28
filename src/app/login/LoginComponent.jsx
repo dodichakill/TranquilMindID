@@ -7,7 +7,6 @@ import { FaEye } from "react-icons/fa";
 import NavigationBar from "@components/NavigationBar";
 import ButtonBackTop from "@components/ButtonBackTop";
 import FooterSection from "@components/FooterSection";
-import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
 const credentialDummy = {
@@ -23,6 +22,7 @@ export default function LoginComponent() {
   const router = useRouter();
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (
       email === credentialDummy.email &&
       password === credentialDummy.password
@@ -32,7 +32,6 @@ export default function LoginComponent() {
         router.push("/admin");
       }
     }
-    toast.error("Email atau password salah!");
   };
 
   return (
